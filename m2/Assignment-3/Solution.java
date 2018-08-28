@@ -37,7 +37,7 @@ final class Solution {
      *
      * @return     { power of the variable }
      */
-    public static long power(final int base, final int exponent) {
+    public static long power(int base, final int exponent) {
         if (exponent == 0) {
             return 1;
         } else {
