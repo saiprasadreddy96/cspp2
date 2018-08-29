@@ -24,9 +24,8 @@ public final class Solution {
                 if (j % (10 * 1) == (7 * 1)) {
                     count++;
                 }
-        		j = j / (10 * 1);
-
-        	}
+                j = j / (10 * 1);
+            }
         }
         System.out.print(count);
     }
