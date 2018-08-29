@@ -18,16 +18,15 @@ public final class Solution {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
         int j, count = 0;
-        
-        final int N_O = 10;
-        final int N_U_M = 7;
+        final int a = 10;
+        final int b = 7;
         for (int i = 1; i <= n; i++) {
             j = i;
             while (j >= 1) {
-                if (j % N_O == N_U_M) {
+                if (j % a == b) {
                     count++;
                 }
-                j = j / N_O;
+                j = j / a;
             }
         }
         System.out.print(count);
