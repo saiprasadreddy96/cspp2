@@ -10,16 +10,16 @@ class Solution {
  * @param      args  The arguments
  */
     public static void main(final String[] args) {
-        Scanner s = new Scanner(System.in);      
+        Scanner s = new Scanner(System.in); 
         int n = s.nextInt();
-        int j, count = 0, a = 7, b = 1, c = 10;
+        int j, count = 0;
         for (int i = 1; i <= n; i++) {
         	j = i;
-        	while (j >= b) {
-        		if (j % c == a) {
+        	while (j >= 1) {
+        		if (j % 10 == 7) {
         			count++;
                 }
-        		j = j / c;
+        		j = j / 10;
 
         	}
         }
