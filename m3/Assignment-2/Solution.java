@@ -8,8 +8,7 @@ class Solution {
  * { function_description }
  */
      Solution() {
-        
-     }
+     }   
 /**.
  * { function_description }
  *
@@ -21,7 +20,7 @@ class Solution {
         int j, count = 0;
         for (int i = 1; i <= n; i++) {
             j = i;
-        	while (j >= 1) {
+            while (j >= 1) {
         		if (j % 10 == 7) {
         			count++;
                 }
