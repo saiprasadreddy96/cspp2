@@ -9,18 +9,17 @@ public class Solution {
 
         Scanner s = new Scanner(System.in);      
         int n = s.nextInt();
-        int j, count = 0;
+        int j, count = 0, a = 7, b = 1, c = 10;
         for (int i = 1;i <= n;i++) {
         	j = i;
-        	while (j >= 1) {
-        		if (j % 10 == 7)
+        	while (j >= b) {
+        		if (j % c == a) {
         			count++;
-        		j = j / 10;
+                }
+        		j = j / c;
 
         	}
         }
         System.out.print(count);
-       
-        
     }
 }
