@@ -3,14 +3,14 @@ import java.util.Scanner;
  * Class for solution.
  */
 public final class Solution {
+    /**.
+     * { var_description }
+     */
     public static final int N_O = 10;
     /**.
      * { item_description }
      */
     public static final int N_U_M = 7;
-    /**.
-     * { item_description }
-     */
 /* Fill the main function to print the number of 7's between 1 to n*/
 /**.
  * { function_description }
