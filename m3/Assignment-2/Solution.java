@@ -10,7 +10,6 @@ class Solution {
  * @param      args  The arguments
  */
     public static void main(final String[] args) {
-
         Scanner s = new Scanner(System.in);      
         int n = s.nextInt();
         int j, count = 0, a = 7, b = 1, c = 10;
