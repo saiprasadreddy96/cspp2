@@ -19,7 +19,7 @@ public final class Solution {
  * @return     { description_of_the_return_value }
  */
     public static int gcd(final int n1, final int n2) {
-        int temp, m1 = n1 ,m2 = n2;
+        int temp, m1 = n1, m2 = n2;
         while (m2 > 0) {
             temp = m1;
             m1 = m2;
@@ -36,7 +36,7 @@ public final class Solution {
         Scanner s=new Scanner(System.in);      
         int n1 = s.nextInt();
         int n2 = s.nextInt();
-        int gcd = gcd(n1 ,n2);
+        int gcd = gcd(n1, n2);
         System.out.println(gcd);
     }
     /*
