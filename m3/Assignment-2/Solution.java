@@ -3,6 +3,14 @@ import java.util.Scanner;
  * Class for solution.
  */
 public final class Solution {
+    public static final int N_O = 10;
+    /**.
+     * { item_description }
+     */
+    public static final int N_U_M = 7;
+    /**.
+     * { item_description }
+     */
 /* Fill the main function to print the number of 7's between 1 to n*/
 /**.
  * { function_description }
@@ -21,10 +29,10 @@ public final class Solution {
         for (int i = 1; i <= n; i++) {
             j = i;
             while (j >= 1) {
-                if (j % (10 * 1) == (7 * 1)) {
+                if (j % N_O == N_U_M) {
                     count++;
                 }
-                j = j / (10 * 1);
+                j = j / N_O;
             }
         }
         System.out.print(count);
