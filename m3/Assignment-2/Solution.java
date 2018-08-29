@@ -7,9 +7,9 @@ class Solution {
 /**.
  * { function_description }
  */
-void Solution() {
-
-}
+     Solution() {
+        
+     }
 /**.
  * { function_description }
  *
