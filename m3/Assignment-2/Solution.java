@@ -1,8 +1,4 @@
-
 import java.util.Scanner;
-/*
-	Do not modify this main function.
-	*/
 /**.
  * Class for solution.
  */
@@ -31,4 +27,7 @@ class Solution {
         System.out.print(count);
     }
 }
+
+
+
 
