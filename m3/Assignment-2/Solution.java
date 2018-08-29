@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**.
  * Class for solution.
  */
-final public class Solution {
+public final class Solution {
 /* Fill the main function to print the number of 7's between 1 to n*/
 /**.
  * { function_description }
@@ -24,7 +24,7 @@ final public class Solution {
                 if (j % (10 * 1) == (7 * 1)) {
                     count++;
                 }
-        		j = j / (10 *1);
+        		j = j / (10 * 1);
 
         	}
         }
