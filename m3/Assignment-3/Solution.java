@@ -38,7 +38,8 @@ public final class Solution {
         int gcd = gcd(n1, n2);
         System.out.println(gcd);
     }
-    /*
-	Need to write the gcd function and print the output.
+    /*Need to write the gcd function and print the output.
 	*/
 }
+
+
