@@ -2,15 +2,13 @@ import java.util.Scanner;
 /**.
  * Class for solution.
  */
-public final class Solution
-{
+public final class Solution {
 	/**
 	 * Constructs the object.
 	 */
 	private Solution() {
 	}
-
-	/**
+	/**.
 	 * { function_description }
 	 *
 	 * @param      s     { parameter_description }
@@ -24,7 +22,7 @@ public final class Solution
 		}
 		return s1;
 	}
-	/**
+	/**.
 	 * { function_description }
 	 *
 	 * @param      args  The arguments
@@ -34,8 +32,5 @@ public final class Solution
 		String s = sc.nextLine();
 		String reverse = reversestring(s);	
 		System.out.println(reverse);
-		
 	}
-	//Write reverseString function
-
 }
