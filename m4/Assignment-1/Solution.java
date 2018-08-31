@@ -3,7 +3,8 @@ import java.util.Scanner;
 /**.
  * Class for solution.
  */
-public final class Solution {/*
+public final class Solution {
+/*
 	Fill this main function to print maximum of given array
 	*//**
 	 * Constructs the object.
@@ -21,9 +22,9 @@ public final class Solution {/*
 		int[] a = new int[n];
 		final int m = -999;
 		int max = m;
-		for (int i = 0; i < n; i++ ) {
+		for (int i = 0; i < n; i++) {
 			a[i] = sc.nextInt();
-			if ( max <= a[i] ) {
+			if (max <= a[i]) {
 				max = a[i];
 			}
 		}
