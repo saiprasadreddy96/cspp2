@@ -6,8 +6,7 @@ import java.util.Scanner;
 public final class Solution {
 /**.
  * Constructs the object.
- */
-	private Solution() {
+ */private Solution() {
 	}
 	/**.
 	 * { function_description }
