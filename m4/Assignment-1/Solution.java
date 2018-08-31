@@ -4,8 +4,7 @@ import java.util.Scanner;
  * Class for solution.
  */
 public final class Solution {
-/*
-	Fill this main function to print maximum of given array
+/*Fill this main function to print maximum of given array
 	*//**
 	 * Constructs the object.
 	 */
@@ -31,3 +30,6 @@ public final class Solution {
 		System.out.println(max);
 	}
 }
+
+
+
