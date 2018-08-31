@@ -20,7 +20,8 @@ public class Solution {/*
 	public static int binaryToDecimal(final String s) {
 		int j = 0, sum = 0;
 		for (int i = (s.length() - 1); i >= 0; i--) {
-			sum += (Character.getNumericValue(s.charAt(i)) * Math.pow(2, j));
+			int c = Character.getNumericValue(s.charAt(i));
+			sum += (c) * Math.pow(2, j);
 			j += 1;
 		}
 		return sum;
@@ -34,10 +35,9 @@ public class Solution {/*
 	{
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		for(int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) {
 			String s = sc.next();
 			int sum = binaryToDecimal(s);
-			//String res=binaryToDecimal(s);//Write binaryToDecimal function
 			System.out.println(sum);
 		}
 	}
