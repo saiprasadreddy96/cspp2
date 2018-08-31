@@ -3,7 +3,7 @@ import java.util.Scanner;
  * Class for solution.
  */
 public final class Solution {
-	/**
+    /**
 	 * Constructs the object.
 	 */
 	private Solution() {
