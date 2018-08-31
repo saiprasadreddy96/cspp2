@@ -3,7 +3,7 @@ import java.util.Scanner;
  * Class for solution.
  */
 public final class Solution {
-	/**
+    /**
 	 * Constructs the object.
 	 */
 	private Solution() {
@@ -30,7 +30,7 @@ public final class Solution {
 	public static void main(final String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String s = sc.nextLine();
-		String reverse = reversestring(s);	
+		String reverse = reversestring(s);
 		System.out.println(reverse);
 	}
 }
