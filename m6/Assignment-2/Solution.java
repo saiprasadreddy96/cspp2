@@ -24,7 +24,8 @@ final class Solution {
      */
     static int[][] roundHundred(final int[][] a, final int rows, final int columns) {
     // write ypur code here
-        int q, r, m = 100;
+        int q, r;
+        final int m = 100;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 q = a[i][j] / m;
