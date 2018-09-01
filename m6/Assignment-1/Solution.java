@@ -21,9 +21,9 @@ public final class Solution {
         final int m = 3;
         for (int i = m; i <= n; i = i + 2) {
             for (int j = 2; j < i / 2; j++) {
-        		if (i % j == 0) {
-        			System.out.println(i);
-        			break;
+                if (i % j == 0) {
+                    System.out.println(i);
+                    break;
         		}
         	}
         }
