@@ -24,8 +24,8 @@ public final class Solution {
                 if (i % j == 0) {
                     System.out.println(i);
                     break;
-        		}
-        	}
+                }
+            }
         }
     }
     /**
