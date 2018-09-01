@@ -20,14 +20,13 @@ public final class Solution {
     static void oddComposites(final int n) {
         final int m = 3;
         for (int i = m; i <= n; i = i + 2) {
-    		for (int j = 2; j < i / 2; j++) {
-    			if (i % j == 0) {
-    				System.out.println(i);
-    				break;
-    			}
-    		}
-
-    	}
+        	for (int j = 2; j < i / 2; j++) {
+        		if (i % j == 0) {
+        			System.out.println(i);
+        			break;
+        		}
+        	}
+        }
     }
     /**
     * main method as driver program.
