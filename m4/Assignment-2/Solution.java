@@ -8,7 +8,6 @@ public final class Solution {
 	 * Constructs the object.
 	 */
 	static Scanner sc = new Scanner(System.in);
-	static int[][] d = new int[3][3];
 	private Solution() {
 	}
 	/**.
@@ -17,6 +16,7 @@ public final class Solution {
 	 * @param      a     { parameter_description }
 	 */
 	public static int[][] readinput(final int r, final int c) {
+		int[][] d = new int[r][c];
 		for (int i = 0; i < r; i++) {
 			for (int j = 0; j < c; j++) {
 				d[i][j] = sc.nextInt();
@@ -35,7 +35,6 @@ public final class Solution {
 		c1 = sc.nextInt();
 		int[][] a = new int[r1][c1];
 		a = readinput(r1, c1);
-		System.out.println(d[0]);
 		r2 = sc.nextInt();
 		c2 = sc.nextInt();
 		int[][] b = new int[r2][c2];
