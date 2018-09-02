@@ -3,17 +3,22 @@ import java.util.Scanner;
  * Class for solution.
  */
 public final class Solution {
-	/* Fill the main function to print resultant of addition of matrices*/
+    /**.
+     * { var_description }
+     */
+	static Scanner sc = new Scanner(System.in);
 	/**.
 	 * Constructs the object.
 	 */
-	static Scanner sc = new Scanner(System.in);
 	private Solution() {
 	}
 	/**.
-	 * Constructs the object.
+	 * { function_description }
 	 *
-	 * @param      a     { parameter_description }
+	 * @param      r     { parameter_description }
+	 * @param      c     { parameter_description }
+	 *
+	 * @return     { description_of_the_return_value }
 	 */
 	public static int[][] readinput(final int r, final int c) {
 		int[][] d = new int[r][c];
@@ -41,7 +46,7 @@ public final class Solution {
 		b = readinput(r2, c2);
 		if ( r1 == r2 && r2 == c2 ) {
 			for (int i = 0; i < r1; i++) {
-				for (j = 0; j < c1 -1; j++) {
+				for (j = 0; j < c1 - 1; j++) {
 					int sum = a[i][j] + b[i][j];
 					System.out.print(sum + " ");;
 				}
