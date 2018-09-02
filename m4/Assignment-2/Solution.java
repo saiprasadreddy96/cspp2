@@ -7,7 +7,7 @@ public class Solution {
 	/**.
 	 * Constructs the object.
 	 */
-	public static Scanner sc = new Scanner(System.in);
+	static Scanner sc = new Scanner(System.in);
 	private Solution() {
 	}
 	/**.
@@ -17,7 +17,6 @@ public class Solution {
 	 */
 	public static int[][] readinput(int r, int c) {
 		int[][] d = new int[r][c];
-		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < r; i++) {
 			for (int j = 0; j < c; j++) {
 				d[i][j] = sc.nextInt();
