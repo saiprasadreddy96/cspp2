@@ -7,7 +7,7 @@ public final class Solution {
      * { var_description }
      */
     private static Scanner sc = new Scanner(System.in);
-	/**.
+    /**.
 	 * Constructs the object.
 	 */
 	private Solution() {
@@ -52,9 +52,10 @@ public final class Solution {
 				}
 				System.out.println(a[i][j] + b[i][j]);
 			}
-		}
-		else {
+		} else {
 			System.out.println("not possible");
 		}
 	}
 }
+
+
