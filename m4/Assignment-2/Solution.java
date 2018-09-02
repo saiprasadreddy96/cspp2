@@ -7,7 +7,7 @@ public class Solution {
 	/**.
 	 * Constructs the object.
 	 */
-	static Scanner sc = new Scanner(System.in);
+	public static Scanner sc = new Scanner(System.in);
 	private Solution() {
 	}
 	/**.
