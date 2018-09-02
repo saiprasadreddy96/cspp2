@@ -6,7 +6,7 @@ public final class Solution {
     /**.
      * { var_description }
      */
-    public static Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
 	/**.
 	 * Constructs the object.
 	 */
@@ -48,7 +48,7 @@ public final class Solution {
 			for (int i = 0; i < r1; i++) {
 				for (j = 0; j < c1 - 1; j++) {
 					int sum = a[i][j] + b[i][j];
-					System.out.print(sum + " ");;
+					System.out.print(sum + " ");
 				}
 				System.out.println(a[i][j] + b[i][j]);
 			}
