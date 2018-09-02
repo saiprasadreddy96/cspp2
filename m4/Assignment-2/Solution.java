@@ -8,8 +8,8 @@ public final class Solution {
      */
     private static Scanner sc = new Scanner(System.in);
     /**.
-	 * Constructs the object.
-	 */
+     * Constructs the object.
+     */
 	private Solution() {
 	}
 	/**.
