@@ -30,7 +30,7 @@ public class Solution {
 	 * @param      args  The arguments
 	 */
 	public static void main(final String[] args) {
-		int r1, c1, r2, c2;
+		int r1, c1, r2, c2, j;
 		r1 = sc.nextInt();
 		c1 = sc.nextInt();
 		int[][] a = new int[r1][c1];
@@ -41,11 +41,11 @@ public class Solution {
 		b = readinput(r2, c2);
 		if ( r1 == r2 && r2 == c2 ) {
 			for (int i = 0; i < r1; i++) {
-				for (int j = 0; j < c1; j++) {
+				for (j = 0; j < c1 -1; j++) {
 					int sum = a[i][j] + b[i][j];
 					System.out.print(sum + " ");;
 				}
-				System.out.print("\n");
+				System.out.println(a[i][j] + b[i][j]);
 			}
 		}
 		else
