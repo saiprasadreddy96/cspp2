@@ -6,7 +6,7 @@ public final class Solution {
     /**.
      * { var_description }
      */
-	static Scanner sc = new Scanner(System.in);
+    public static Scanner sc = new Scanner(System.in);
 	/**.
 	 * Constructs the object.
 	 */
@@ -44,7 +44,7 @@ public final class Solution {
 		c2 = sc.nextInt();
 		int[][] b = new int[r2][c2];
 		b = readinput(r2, c2);
-		if ( r1 == r2 && r2 == c2 ) {
+		if (r1 == r2 && r2 == c2) {
 			for (int i = 0; i < r1; i++) {
 				for (j = 0; j < c1 - 1; j++) {
 					int sum = a[i][j] + b[i][j];
@@ -53,8 +53,8 @@ public final class Solution {
 				System.out.println(a[i][j] + b[i][j]);
 			}
 		}
-		else
+		else {
 			System.out.println("not possible");
-		
+		}
 	}
 }
