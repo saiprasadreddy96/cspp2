@@ -2,12 +2,13 @@ import java.util.Scanner;
 /**.
  * Class for solution.
  */
-public class Solution {
+public final class Solution {
 	/* Fill the main function to print resultant of addition of matrices*/
 	/**.
 	 * Constructs the object.
 	 */
 	static Scanner sc = new Scanner(System.in);
+	static int[][] d = new int[3][3];
 	private Solution() {
 	}
 	/**.
@@ -15,8 +16,7 @@ public class Solution {
 	 *
 	 * @param      a     { parameter_description }
 	 */
-	public static int[][] readinput(int r, int c) {
-		int[][] d = new int[r][c];
+	public static int[][] readinput(final int r, final int c) {
 		for (int i = 0; i < r; i++) {
 			for (int j = 0; j < c; j++) {
 				d[i][j] = sc.nextInt();
@@ -35,6 +35,7 @@ public class Solution {
 		c1 = sc.nextInt();
 		int[][] a = new int[r1][c1];
 		a = readinput(r1, c1);
+		System.out.println(d[0]);
 		r2 = sc.nextInt();
 		c2 = sc.nextInt();
 		int[][] b = new int[r2][c2];
