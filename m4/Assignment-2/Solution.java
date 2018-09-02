@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 /**.
  * Class for solution.
  */
@@ -14,7 +14,7 @@ public class Solution {
 	 *
 	 * @param      a     { parameter_description }
 	 */
-	public int[][] readinput(int r, int c) {
+	public static int[][] readinput(int r, int c) {
 		int[][] d = new int[r][c];
 		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < r; i++) {
@@ -30,17 +30,16 @@ public class Solution {
 	 * @param      args  The arguments
 	 */
 	public static void main(final String[] args) {
-		Solution s = new Solution();
 		Scanner sc = new Scanner(System.in);
 		int r1, c1, r2, c2;
 		r1 = sc.nextInt();
 		c1 = sc.nextInt();
 		int[][] a = new int[r1][c1];
-		a = s.readinput(r1, c1);
+		a = readinput(r1, c1);
 		r2 = sc.nextInt();
 		c2 = sc.nextInt();
 		int[][] b = new int[r2][c2];
-		b = s.readinput(r2, c2);
+		b = readinput(r2, c2);
 		if ( r1 == r2 && r2 == c2 ) {
 			for (int i = 0; i < r1; i++) {
 				for (int j = 0; j < c1; j++) {
