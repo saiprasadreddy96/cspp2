@@ -7,6 +7,7 @@ public class Solution {
 	/**.
 	 * Constructs the object.
 	 */
+	static Scanner sc = new Scanner(System.in);
 	private Solution() {
 	}
 	/**.
@@ -30,7 +31,6 @@ public class Solution {
 	 * @param      args  The arguments
 	 */
 	public static void main(final String[] args) {
-		Scanner sc = new Scanner(System.in);
 		int r1, c1, r2, c2;
 		r1 = sc.nextInt();
 		c1 = sc.nextInt();
