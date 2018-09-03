@@ -45,8 +45,8 @@ public class Solution {
         /**.
     	 * { var_description }
     	 */
-    	InputValidator i = new InputValidator(input);    	
-    	System.out.println(i.validateData());
+        InputValidator i = new InputValidator(input);    	
+        System.out.println(i.validateData());
     }
 }
 
