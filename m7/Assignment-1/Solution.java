@@ -4,7 +4,7 @@ import java.util.Scanner;
  */
 class InputValidator {
     /*Write the atrributes and methods for InputValidator*/
-	/**.
+    /**.
 	 * Constructs the object.
 	 */
 	/**.
