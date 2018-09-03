@@ -3,7 +3,7 @@ import java.util.Scanner;
  * Class for input validator.
  */
 class InputValidator {
-	/*Write the atrributes and methods for InputValidator*/
+    /*Write the atrributes and methods for InputValidator*/
 	/**.
 	 * Constructs the object.
 	 */
@@ -16,7 +16,7 @@ class InputValidator {
 	 *
 	 * @param      input  The input
 	 */
-	public InputValidator(String input) {
+	InputValidator(final String input) {
 		this.input = input;
 	}
 	/**.
@@ -39,7 +39,7 @@ public class Solution {
 	/**.
 	 * { item_description }
 	 */
-	public static void main(String args[]) {
+	public static void main(final String args[]) {
     	Scanner s = new Scanner(System.in);
     	String input = s.next();
     	InputValidator i = new InputValidator(input);    	
