@@ -1,9 +1,8 @@
-import java.util.*;
+import java.util.Scanner;
 /**.
  * Class for input validator.
  */
-class InputValidator
-{
+class InputValidator {
 	/*Write the atrributes and methods for InputValidator*/
 	/**.
 	 * Constructs the object.
@@ -11,7 +10,7 @@ class InputValidator
 	/**.
 	 * { var_description }
 	 */
-	String input;
+	private String input;
 	/**.
 	 * Constructs the object.
 	 *
@@ -26,26 +25,24 @@ class InputValidator
 	 * @return     { description_of_the_return_value }
 	 */
 	public boolean validateData() {
-		if (input.length() >= 6) 
+		final int m = 6;
+		if (input.length() >= m) {
 			return true;
+		}
 		return false;
 	}
 }
 /**.
  * Class for solution.
  */
-public class Solution
-{
+public class Solution {
 	/**.
 	 * { item_description }
 	 */
-	public static void main(String args[])
-    {
+	public static void main(String args[]) {
     	Scanner s = new Scanner(System.in);
     	String input = s.next();
     	InputValidator i = new InputValidator(input);    	
     	System.out.println(i.validateData());
-
     }
-
 }
