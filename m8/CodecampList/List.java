@@ -1,7 +1,9 @@
 import java.io.BufferedInputStream;
 import java.util.Scanner;
-
-public class List {
+/**.
+ * List of .
+ */
+public final class List {
 	//Implement all the methods mentioned to build a ListADT
 
     /*
@@ -60,6 +62,9 @@ public class List {
      */
     int[] list;
     int size;
+    /**.
+     * Constructs the object.
+     */
     public List() {
 
         // what are the two variables to be initialized here?
@@ -87,7 +92,12 @@ public class List {
      * 
      * The method returns void (nothing)
      */
-    public void add(int item) {
+    /**.
+     * { function_description }
+     *
+     * @param      item  The item
+     */
+    public void add(final int item) {
         //Inserts the specified element at the end of the list.
         list[size++] = item;
     }
@@ -98,6 +108,11 @@ public class List {
      * to the objects outside the list
      * 
      * The method returns an int. Empty list should return 0.
+     */
+    /**.
+     * { function_description }
+     *
+     * @return     { description_of_the_return_value }
      */
     public int size() {
         // replace the code below to implement the size method
@@ -124,7 +139,12 @@ public class List {
      * array = [1,3,0,0,0,0,0,0,0,0]
      * The method returns void (nothing)
      */
-    public void remove(int index) {
+    /**.
+     * { function_description }
+     *
+     * @param      index  The index
+     */
+    public void remove(final int index) {
         // write the logic for remove here.
         // Think about what to do to the size variable.
         if (index >= 0 && index < size) {
@@ -135,10 +155,7 @@ public class List {
         }
         else
             System.out.println("Invalid Position Exception");
-
-        
     }
-
     /*
      * Get method has to return the items that is
      * at the index position passed as an argument to the method.
@@ -150,13 +167,19 @@ public class List {
      * How do we check if the position is greater than the 
      * number of items in the list? Would size variable be useful?
      */
-    public int get(int index) {
+    /**.
+     * { function_description }
+     *
+     * @param      index  The index
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int get(final int index) {
         // Replace the code below to write the code for get
         if (index >= 0 && index < size)
             return list[index];
         return -1;
     }
-
     /*
      * What happens when you print an object using println?
      * Java provides a method named toString that is internally
@@ -177,6 +200,11 @@ public class List {
      * not all the elements of the array.
      *
      */
+    /**.
+     * Returns a string representation of the object.
+     *
+     * @return     String representation of the object.
+     */
     public String toString() {
         // Replace the code below
         String str = "[";
@@ -186,12 +214,18 @@ public class List {
         str += list[size - 1] + "]";
         return str;
     } 
-    
     /*
      * Contains return true if the list has
      * the item passed as an argument to the method
      * So, iterate through the list and return true if
      * the item exists and otherwise false
+     */
+    /**.
+     * { function_description }
+     *
+     * @param      item  The item
+     *
+     * @return     { description_of_the_return_value }
      */
     public boolean contains(int item) {
         // Replace the code below
@@ -201,11 +235,17 @@ public class List {
         }
         return false;
     }
-
     /*
      * Returns the index of the first occurrence 
      * of the specified element in this list,
      * or -1 if this list does not contain the element.
+     */
+    /**.
+     * Searches for the first match.
+     *
+     * @param      item  The item
+     *
+     * @return     { description_of_the_return_value }
      */
     public int indexOf(int item) {
         // Replace the code below
@@ -215,11 +255,14 @@ public class List {
         }
         return -1;
     }
-
+    /**.
+     * { function_description }
+     *
+     * @param      args  The arguments
+     */
 	public static void main(String[] args) {
         // create an object of the list to invoke methods on it
         List l = new List();
-
         // code to read the test cases input file
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
         // check if there is one more line to process
