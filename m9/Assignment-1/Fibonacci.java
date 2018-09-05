@@ -26,7 +26,9 @@ public final class Fibonacci {
      *
      * Look for the hint.txt if some of the testcases fail.
      */
-    //static int[] a = new int[10]
+    /**.
+     * Constructs the object.
+     */
     private Fibonacci() {
         /*constructor*/
     }
