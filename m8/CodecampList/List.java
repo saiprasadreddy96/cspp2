@@ -173,10 +173,11 @@ public class List {
      */
     public String toString() {
         // Replace the code below
-        String str = "";
-        for (int i = 0; i < size; i++) {
-            str += list[i];
+        String str = "[";
+        for (int i = 0; i < size - 1; i++) {
+            str += list[i] + ",";
         }
+        str += list[size - 1] + "]";
         return str;
     } 
     
