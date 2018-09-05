@@ -4,7 +4,7 @@ import java.util.Scanner;
  * List of .
  */
 public final class List {
-	//Implement all the methods mentioned to build a ListADT
+    //Implement all the methods mentioned to build a ListADT
 
     /*
      * The goal for the list is to store items.
@@ -27,11 +27,9 @@ public final class List {
      * This is a hard concept to understand. Discuss with your mentor.
      *
     */
-    
     // declare a private int[]
     // don't create the array yet using new
     // that's the job of the List constructor
-
     /*
      * What are the other class variables needed for creating a list?
      * How about keeping track of the size of the list?
@@ -51,22 +49,20 @@ public final class List {
      * to be accessed by the methods that are outside of the List class.
      * 
      */
-
-    // declare a private int size
+     // declare a private int size
     // again, don't initialize it here
     // variable initialization should be done in the constructor
-
+    // 
     /*
      * The purpose of the constructor is to initialize the
      * class variables with some default values.
      */
-    int[] list;
-    int size;
+    private int[] list;
+    private int size;
     /**.
      * Constructs the object.
      */
     public List() {
-
         // what are the two variables to be initialized here?
         // think about the private variables described above.
         // What should be the default values?
@@ -80,7 +76,6 @@ public final class List {
         list = new int[10];
         size = 0;
     }
-    
     /*
      * The add method does what the name suggests.
      * Add an int item to the list.
@@ -101,7 +96,6 @@ public final class List {
         //Inserts the specified element at the end of the list.
         list[size++] = item;
     }
-
     /*
      * The size method returns the value of the size.
      * The purpose of the method is to announce the size of the list
@@ -118,7 +112,6 @@ public final class List {
         // replace the code below to implement the size method
         return size;
     }
-
     /*
      * The remove method does what the name suggests.
      * Removes an int item, specified by the index argument, from the list
@@ -153,8 +146,9 @@ public final class List {
             }
         size--;
         }
-        else
+        else {
             System.out.println("Invalid Position Exception");
+        }
     }
     /*
      * Get method has to return the items that is
@@ -176,8 +170,9 @@ public final class List {
      */
     public int get(final int index) {
         // Replace the code below to write the code for get
-        if (index >= 0 && index < size)
+        if (index >= 0 && index < size) {
             return list[index];
+        }
         return -1;
     }
     /*
@@ -230,8 +225,9 @@ public final class List {
     public boolean contains(int item) {
         // Replace the code below
         for (int i = 0; i < size; i++) {
-            if (item == list[i])
+            if (item == list[i]) {
                 return true;
+            }
         }
         return false;
     }
@@ -250,8 +246,9 @@ public final class List {
     public int indexOf(int item) {
         // Replace the code below
         for (int i = 0; i < size; i++) {
-            if (item == list[i])
+            if (item == list[i]) {
                 return i;
+            }
         }
         return -1;
     }
