@@ -30,6 +30,13 @@ public final class Fibonacci {
     private Fibonacci() {
         /*constructor*/
     }
+    /**.
+     * { function_description }
+     *
+     * @param      n     { parameter_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
     public static List fib(final int n) {
         /*todo - complete this method*/
         List fibobj = new List(n);
@@ -54,3 +61,5 @@ public final class Fibonacci {
         System.out.println(fib(n));
     }
 }
+
+
