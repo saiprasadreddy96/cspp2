@@ -205,8 +205,8 @@ public class List {
     public void remove(final int index) {
         // write the logic for remove here.
         // Think about what to do to the size variable.
-        if(index >= 0 && index < size) {
-            for(int i = index; i < size - 1; i++) {
+        if (index >= 0 && index < size) {
+            for (int i = index; i < size - 1; i++) {
                 list[i] = list[i + 1];
             }
             size--;
@@ -234,7 +234,7 @@ public class List {
      * @return     { description_of_the_return_value }
      */
     public int get(final int index) {
-        if(index < 0 || index >= size) {
+        if (index < 0 || index >= size) {
             return -1;
         } else {
             return list[index];
@@ -267,11 +267,11 @@ public class List {
      * @return     String representation of the object.
      */
     public String toString() {
-        if(size == 0)
+        if (size == 0)
             return "[]";
         String str = "[";
         int i = 0;
-        for(i = 0; i < size - 1; i++) {
+        for (i = 0; i < size - 1; i++) {
             str = str + list[i] + ",";
         }
         str = str + list[i] + "]";
@@ -308,8 +308,8 @@ public class List {
      * @return     { description_of_the_return_value }
      */
     public int indexOf(final int item) {
-        for(int i = 0; i < size; i++) {
-            if(item == list[i])
+        for (int i = 0; i < size; i++) {
+            if (item == list[i])
                 return i;
         }
         return -1;
@@ -388,10 +388,10 @@ public class List {
             switch (tokens[0]) {
                case "add":
                 String[] t = tokens[1].split(",");
-                    if(t.length==1){
+                    if (t.length==1){
                         l.add(Integer.parseInt(t[0]));
                     }
-                    if(t.length>1) {
+                    if (t.length>1) {
                         if (Integer.parseInt(t[0]) >= 0 && Integer.parseInt(t[0]) < l.size) {
                             l.add(Integer.parseInt(t[0]),Integer.parseInt(t[1]));
                         }
@@ -405,10 +405,10 @@ public class List {
                 System.out.println(l.count(Integer.parseInt(tokens[1])));
                 break;
                 case "addAll":
-                if(tokens.length==2){
+                if (tokens.length==2) {
                 String[] t1 = tokens[1].split(",");
                 int temp[]=new int[t1.length];
-                for(int i=0;i<temp.length;i++)
+                for (int i=0;i<temp.length;i++)
                     temp[i]=Integer.parseInt(t1[i]);
                 l.addAll(temp);
                 }
