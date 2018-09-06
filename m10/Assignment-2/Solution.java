@@ -41,7 +41,7 @@ public class Solution {
                 System.out.println(l);
                 break;
                 case "remove":
-                if (Integer.parseInt(tokens[1]) < l.size()) {
+                if (Integer.parseInt(tokens[1]) >= 0 && Integer.parseInt(tokens[1]) < l.size()) {
                     l.remove(Integer.parseInt(tokens[1]));
                 }
                 else {
