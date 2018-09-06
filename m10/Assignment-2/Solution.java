@@ -41,7 +41,12 @@ public class Solution {
                 System.out.println(l);
                 break;
                 case "remove":
-                l.remove(Integer.parseInt(tokens[1]));
+                if (Integer.parseInt(tokens[1]) < l.size()) {
+                    l.remove(Integer.parseInt(tokens[1]));
+                }
+                else {
+                    System.out.println("Invalid Position Exception");
+                }
                 break;
                 case "indexOf":
                 System.out.println(l.indexOf(tokens[1]));
