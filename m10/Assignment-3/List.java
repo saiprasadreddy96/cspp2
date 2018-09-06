@@ -39,7 +39,18 @@ public class List<E> {
     public void add(E item) {
         //Inserts the specified element at the end of the list.
         //You can modify the code in this method.
+        if (size == 10) {
+            resize();
+        }
         list[(size++)] = item;
+    }
+
+    public void resize() {
+        E[] l1 = (E[])(new Object[2 * size]);
+        for (int i = 0; i < size; i++) {
+            l1[i] = list[i];
+        }
+        list = l1;
     }
     /*Inserts all the elements of specified int 
     array to the end of list*/
