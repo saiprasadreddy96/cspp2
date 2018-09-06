@@ -233,7 +233,7 @@ public class List {
      */
     public String toString() {
         if(size == 0)
-            return "";
+            return "[]";
         String str = "[";
         int i = 0;
         for(i = 0; i < size - 1; i++) {
@@ -325,7 +325,13 @@ public class List {
                 }
                 else{
                     if(t.length>1)
-                        l.add(Integer.parseInt(t[0]),Integer.parseInt(t[1]));
+                        if (Integer.parseInt(t[0]) >= 0 && Integer.parseInt(t[0]) < l.size) {
+                            l.add(Integer.parseInt(t[0]),Integer.parseInt(t[1]));
+                        }
+                        else {
+                            System.out.println("Negative Index Exception");
+                        }
+                        
                     }
                 }
                 break;
