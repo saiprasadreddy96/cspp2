@@ -96,6 +96,7 @@ public class List<E> {
         for (i = index; i < size - 1; i++) {
             list[i] = list[i + 1];
         }
+        list[i] = null;
         size--;
     }
     /*
