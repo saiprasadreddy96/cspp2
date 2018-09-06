@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**.
  * List of .
  */
-public class List {
+public final class List {
     //Implement all the methods mentioned to build a ListADT
 
     /*
@@ -309,8 +309,9 @@ public class List {
      */
     public int indexOf(final int item) {
         for (int i = 0; i < size; i++) {
-            if (item == list[i])
+            if (item == list[i]) {
                 return i;
+            }
         }
         return -1;
     }
@@ -322,8 +323,9 @@ public class List {
     public void addAll(final int items[])
     {
         // write the logic
-        for (int i = 0; i < items.length; i++)
+        for (int i = 0; i < items.length; i++) {
             add(items[i]);
+        }
     }
 
      /* 
@@ -361,9 +363,11 @@ public class List {
     {
          // write the logic
         int c = 0;
-        for (int i = 0; i < size; i++)
-            if (item == list[i])
+        for (int i = 0; i < size; i++) {
+            if (item == list[i]) {
                 c++;
+            }
+        }
         return c;
     }
 
@@ -388,12 +392,12 @@ public class List {
             switch (tokens[0]) {
                case "add":
                 String[] t = tokens[1].split(",");
-                    if (t.length==1){
+                    if (t.length == 1){
                         l.add(Integer.parseInt(t[0]));
                     }
-                    if (t.length>1) {
+                    if (t.length > 1) {
                         if (Integer.parseInt(t[0]) >= 0 && Integer.parseInt(t[0]) < l.size) {
-                            l.add(Integer.parseInt(t[0]),Integer.parseInt(t[1]));
+                            l.add(Integer.parseInt(t[0]), Integer.parseInt(t[1]));
                         }
                         else {
                             System.out.println("Negative Index Exception");
@@ -405,11 +409,11 @@ public class List {
                 System.out.println(l.count(Integer.parseInt(tokens[1])));
                 break;
                 case "addAll":
-                if (tokens.length==2) {
+                if (tokens.length == 2) {
                 String[] t1 = tokens[1].split(",");
-                int temp[]=new int[t1.length];
-                for (int i=0;i<temp.length;i++)
-                    temp[i]=Integer.parseInt(t1[i]);
+                int temp[] = new int[t1.length];
+                for (int i = 0; i < temp.length; i++)
+                    temp[i] = Integer.parseInt(t1[i]);
                 l.addAll(temp);
                 }
                 break;
