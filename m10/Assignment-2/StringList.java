@@ -2,18 +2,17 @@
 import java.util.Arrays;
 interface StringListInterface
 {
-	 public void add(String item);
-	 public void addAll(String items[]);
-	 public String get(int index);
-	 public int size();
-	 public void remove(int index);
-	 public boolean contains(String item);
-	 public int indexOf(String item);
+     public void add(String item);
+     public void addAll(String items[]);
+     public String get(int index);
+     public int size();
+     public void remove(int index);
+     public boolean contains(String item);
+     public int indexOf(String item);
 }
 //Write a StringList class which implements StringListInterface 
-
-public class StringList implements StringListInterface{
-	//Implement all the methods mentioned to build a ListADT
+public final class StringList implements StringListInterface{
+    //Implement all the methods mentioned to build a ListADT
 
     /*
      * The goal for the list is to store items.
@@ -41,7 +40,6 @@ public class StringList implements StringListInterface{
     // don't create the array yet using new
     // that's the job of the List constructor
     private String[] list;
-
     /*
      * What are the other class variables needed for creating a list?
      * How about keeping track of the size of the list?
@@ -61,19 +59,14 @@ public class StringList implements StringListInterface{
      * to be accessed by the methods that are outside of the List class.
      * 
      */
-
     // declare a private int size
     // again, don't initialize it here
     // variable initialization should be done in the constructor
     private int size;
-
     /*
      * The purpose of the constructor is to initialize the
      * class variables with some default values.
      */
-    
-    
-
     public StringList() {
 
         // what are the two variables to be initialized here?
@@ -122,7 +115,7 @@ public class StringList implements StringListInterface{
      * 
      * The method returns void (nothing)
      */
-    public void add(String item) {
+    public void add(final String item) {
         //Inserts the specified element at the end of the list.
         if (size == list.length) {
             resize();
@@ -138,11 +131,11 @@ public class StringList implements StringListInterface{
     /*Inserts all the elements of specified int 
     array to the end of list*/
    
-    public void addAll(String[] items) {
-		for (int i = 0; i < items.length; i++) {
+    public void addAll(final String[] items) {
+        for (int i = 0; i < items.length; i++) {
             add(items[i]);
         }
-	}
+    }
     /*
      * The size method returns the value of the size.
      * The purpose of the method is to announce the size of the list
