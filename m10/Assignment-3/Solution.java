@@ -68,7 +68,12 @@ public class Solution {
 		                System.out.println(listString);
 		                break;
 		                case "remove":
-		                listString.remove(Integer.parseInt(tokens[1]));
+		                if (Integer.parseInt(tokens[1]) >= 0 && Integer.parseInt(tokens[1]) < listString.size()) {
+		                	listString.remove(Integer.parseInt(tokens[1]));
+		                }
+		                else {
+		                	System.out.println("Invalid Position Exception");
+		                }
 		                break;
 		                case "indexOf":
 		                System.out.println(listString.indexOf(tokens[1]));
