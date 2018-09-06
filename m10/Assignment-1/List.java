@@ -1,8 +1,10 @@
 import java.io.BufferedInputStream;
 import java.util.Scanner;
-
+/**.
+ * List of .
+ */
 public class List {
-	//Implement all the methods mentioned to build a ListADT
+    //Implement all the methods mentioned to build a ListADT
 
     /*
      * The goal for the list is to store items.
@@ -61,7 +63,9 @@ public class List {
      * class variables with some default values.
      */
     
-    
+    /**.
+     * Constructs the object.
+     */
 
     public List() {
 
@@ -93,7 +97,12 @@ public class List {
      * constructor.
      * 
      */
-    public List(int capacity) {
+    /**.
+     * Constructs the object.
+     *
+     * @param      capacity  The capacity
+     */
+    public List(final int capacity) {
         size = 0;
         list = new int[capacity];
     }
@@ -109,7 +118,12 @@ public class List {
      * 
      * The method returns void (nothing)
      */
-    public void add(int item) {
+    /**.
+     * { function_description }
+     *
+     * @param      item  The item
+     */
+    public void add(final int item) {
         //Inserts the specified element at the end of the zelist.
         list[size++] = item;   
     }
@@ -154,6 +168,11 @@ public class List {
      * 
      * The method returns an int. Empty list should return 0.
      */
+    /**.
+     * { function_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
     public int size() {
         return size;
     }
@@ -178,8 +197,12 @@ public class List {
      * array = [1,3,0,0,0,0,0,0,0,0]
      * The method returns void (nothing)
      */
-
-    public void remove(int index) {
+    /**.
+     * { function_description }
+     *
+     * @param      index  The index
+     */
+    public void remove(final int index) {
         // write the logic for remove here.
         // Think about what to do to the size variable.
         if(index >= 0 && index < size) {
@@ -203,7 +226,14 @@ public class List {
      * How do we check if the position is greater than the 
      * number of items in the list? Would size variable be useful?
      */
-    public int get(int index) {
+    /**.
+     * { function_description }
+     *
+     * @param      index  The index
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int get(final int index) {
         if(index < 0 || index >= size) {
             return -1;
         } else {
@@ -231,6 +261,11 @@ public class List {
      * not all the elements of the array.
      *
      */
+    /**.
+     * Returns a string representation of the object.
+     *
+     * @return     String representation of the object.
+     */
     public String toString() {
         if(size == 0)
             return "[]";
@@ -249,7 +284,14 @@ public class List {
      * So, iterate through the list and return true if
      * the item exists and otherwise false
      */
-    public boolean contains(int item) {
+    /**.
+     * { function_description }
+     *
+     * @param      item  The item
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public boolean contains(final int item) {
         return indexOf(item) != -1;
     }
 
@@ -258,7 +300,14 @@ public class List {
      * of the specified element in this list,
      * or -1 if this list does not contain the element.
      */
-    public int indexOf(int item) {
+    /**.
+     * Searches for the first match.
+     *
+     * @param      item  The item
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int indexOf(final int item) {
         for(int i = 0; i < size; i++) {
             if(item == list[i])
                 return i;
@@ -267,7 +316,10 @@ public class List {
     }
    /*Inserts all the elements of specified int 
     array to the end of list*/
-    public void addAll(int items[])
+    /**.
+     * { item_description }
+     */
+    public void addAll(final int items[])
     {
         // write the logic
         for (int i = 0; i < items.length; i++)
@@ -276,23 +328,36 @@ public class List {
 
      /* 
         Inserts the specified element at the specified index 
-	by moving all the elements to the right.
+    by moving all the elements to the right.
         The method returns void (nothing)
      */
-    public void add(int index,int item) {
+        /**.
+         * { function_description }
+         *
+         * @param      index  The index
+         * @param      item   The item
+         */
+    public void add(final int index,final int item) {
          // write the logic
-        int temp, i = index;
+        int temp, i = index, item1 = item;
         for (i = index; i < size; i++) {
             temp = list[i];
-            list[i] = item;
-            item = temp;
+            list[i] = item1;
+            item1 = temp;
         }
-        list[i] = item;
+        list[i] = item1;
         size++;
     }
     
     /* Returns the count of occurances of a given item in the list*/
-    public int count(int item)
+    /**.
+     * { function_description }
+     *
+     * @param      item  The item
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int count(final int item)
     {
          // write the logic
         int c = 0;
@@ -302,8 +367,12 @@ public class List {
         return c;
     }
 
-
-	public static void main(String[] args) {
+    /**.
+     * { function_description }
+     *
+     * @param      args  The arguments
+     */
+    public static void main(final String[] args) {
         // create an object of the list to invoke methods on it
         List l = new List();
 
@@ -370,5 +439,5 @@ public class List {
                 break;
             }
         }
-	}
+    }
 }
