@@ -15,18 +15,20 @@ import java.util.Scanner;
      */
 public class List<E> {
     private E[] list;
-    private int size;
+    private int size, resize;
     //Constructor
     public List() {
         // Create a variable of the type Object[]
         list = ((E[])new Object[10]);
         //Object is the base class for all the classes
         size = 0;
+        resize = 10;
     }
     //Overloaded Constructor
     public List(int param) {
         list = ((E[])new Object[param]);
         size = 0;
+        resize = 10;
     }
     /* The add method does what the name suggests.
      * Add a generic type item to the list.
@@ -39,13 +41,14 @@ public class List<E> {
     public void add(E item) {
         //Inserts the specified element at the end of the list.
         //You can modify the code in this method.
-        if (size == 10) {
+        if (size >= resize) {
             resize();
         }
         list[(size++)] = item;
     }
 
     public void resize() {
+        resize = 2 * size;
         E[] l1 = (E[])(new Object[2 * size]);
         for (int i = 0; i < size; i++) {
             l1[i] = list[i];
