@@ -124,7 +124,12 @@ public class Solution {
 		                System.out.println(listInteger);
 		                break;
 		                case "remove":
-		                listInteger.remove(Integer.parseInt(tokens[1]));
+		                if (Integer.parseInt(tokens[1]) >= 0 && Integer.parseInt(tokens[1]) < listInteger.size()) {
+		                	listInteger.remove(Integer.parseInt(tokens[1]));
+		                }
+		                else {
+		                	System.out.println("Invalid Position Exception");
+		                }
 		                break;
 		                case "indexOf":
 		                System.out.println(listInteger.indexOf(Integer.parseInt((tokens[1]))));
@@ -175,7 +180,12 @@ public class Solution {
 		                System.out.println(listFloat);
 		                break;
 		                case "remove":
-		                listFloat.remove(Integer.parseInt(tokens[1]));
+		                if (Integer.parseInt(tokens[1]) >= 0 && Integer.parseInt(tokens[1]) < listFloat.size()) {
+		                	listFloat.remove(Integer.parseInt(tokens[1]));
+		                }
+		                else {
+		                	System.out.println("Invalid Position Exception");
+		                }
 		                break;
 		                case "indexOf":
 		                System.out.println(listFloat.indexOf(Float.parseFloat(tokens[1])));
@@ -226,7 +236,13 @@ public class Solution {
 		                System.out.println(listCharacter);
 		                break;
 		                case "remove":
-		                listCharacter.remove(Integer.parseInt(tokens[1]));
+		                //listCharacter.remove(Integer.parseInt(tokens[1]));
+		                if (Integer.parseInt(tokens[1]) >= 0 && Integer.parseInt(tokens[1]) < listCharacter.size()) {
+		                	listCharacter.remove(Integer.parseInt(tokens[1]));
+		                }
+		                else {
+		                	System.out.println("Invalid Position Exception");
+		                }
 		                break;
 		                case "indexOf":
 		                System.out.println(listCharacter.indexOf(tokens[1].charAt(0)));
@@ -277,7 +293,13 @@ public class Solution {
 		                System.out.println(listDouble);
 		                break;
 		                case "remove":
-		                listDouble.remove(Integer.parseInt(tokens[1]));
+		                //listDouble.remove(Integer.parseInt(tokens[1]));
+		                if (Integer.parseInt(tokens[1]) >= 0 && Integer.parseInt(tokens[1]) < listDouble.size()) {
+		                	listDouble.remove(Integer.parseInt(tokens[1]));
+		                }
+		                else {
+		                	System.out.println("Invalid Position Exception");
+		                }
 		                break;
 		                case "indexOf":
 		                System.out.println(listDouble.indexOf(Double.parseDouble(tokens[1])));
@@ -328,7 +350,13 @@ public class Solution {
 		                System.out.println(listStudent);
 		                break;
 		                case "remove":
-		                listStudent.remove(Integer.parseInt(tokens[1]));
+		                //listStudent.remove(Integer.parseInt(tokens[1]));
+		                if (Integer.parseInt(tokens[1]) >= 0 && Integer.parseInt(tokens[1]) < listStudent.size()) {
+		                	listStudent.remove(Integer.parseInt(tokens[1]));
+		                }
+		                else {
+		                	System.out.println("Invalid Position Exception");
+		                }
 		                break;
 		                case "indexOf":
 		                System.out.println(listStudent.indexOf(new Student(tokens[1])));
