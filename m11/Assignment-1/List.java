@@ -64,6 +64,7 @@ public final class List {
      */
     /**.
     list
+    * @param count
     */
     private List(final int count) {
         // what are the two variables to be initialized here? think about the
@@ -206,7 +207,7 @@ public final class List {
         }
         str += list[i] + "]";
         return str;
-    } 
+    }
     /**.
      * { function_description }
      *
@@ -248,7 +249,7 @@ public final class List {
         for (int i = 0; i < newArray.length; i++) {
            add(newArray[i]);
         }
-    }    
+    }
      /**.
       * Removes all.
       *
@@ -405,7 +406,9 @@ public final class List {
                     }
                     break;
                 case "subList":
-                    if (tokens.length != 2) break;
+                    if (tokens.length != 2) {
+                        break;
+                    }
                     String[] arrstring3 = tokens[1].split(",");
                     int start = Integer.parseInt(arrstring3[0]);
                     int end = Integer.parseInt(arrstring3[1]);
