@@ -54,7 +54,6 @@ public final class List {
      * So, to keep track of the size we need a variable called size
      * Again, we use private as we don't want that size variable
      * to be accessed by the methods that are outside of the List class.
-     * 
      */
      // declare a private int size
     // again, don't initialize it here
@@ -63,6 +62,9 @@ public final class List {
      * The purpose of the constructor is to initialize the class variables with
      * some default values.
      */
+    /**.
+    list
+    */
     private List(final int count) {
         // what are the two variables to be initialized here? think about the
         // private variables described above. What should be the default values?
@@ -244,7 +246,7 @@ public final class List {
     public void addAll(final int[] newArray) {
         // write the logic
         for (int i = 0; i < newArray.length; i++) {
-            add(newArray[i]);
+           add(newArray[i]);
         }
     }    
      /**.
@@ -401,7 +403,7 @@ public final class List {
                         }
                         l.removeAll(a);
                     }
-                break;
+                    break;
                 case "subList":
                     if (tokens.length != 2) break;
                     String[] arrstring3 = tokens[1].split(",");
@@ -437,3 +439,6 @@ public final class List {
         }
     }
 }
+
+
+
