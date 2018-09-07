@@ -219,10 +219,14 @@ public class List {
      {
         // write the logic
         for (int i = 0; i < newArray.length; i++) {
-        	int index = indexOf(newArray[i]);
-        	if (index != -1) {
-        		remove(index);
+        	for (int j = 0; j < size; j++) {
+        		if (list[j] == newArray[i]) {
+        			int index = j;
+        			remove(index);
+        		}
+        		
         	}
+        
         }
 
      }
