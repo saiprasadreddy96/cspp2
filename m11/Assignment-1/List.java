@@ -26,7 +26,13 @@ public final class List {
      * This is a hard concept to understand. Discuss with your mentor.
      *
     */
+    /**.
+    list
+    */
     private int[] list;
+    /**.
+     * { item_description }
+     */
     private int size, resize;
     // declare a private int[]
     // don't create the array yet using new
@@ -308,7 +314,7 @@ public final class List {
      *
      * @return     { description_of_the_return_value }
      */
-    public boolean equals(List list ) {
+    public boolean equals(final List list ) {
     // Replace the code below
         if (this.size == list.size) {
             for (int i = 0; i < this.size; i++) {
