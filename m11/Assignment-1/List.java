@@ -243,6 +243,7 @@ public class List {
     			object.list[j] = this.list[i];
     			j++;
     		}
+    		object.size = end - start;
     	}
     	return object;
     }
