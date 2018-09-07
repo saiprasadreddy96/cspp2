@@ -295,7 +295,7 @@ public final class List {
     /**.
      * { function_description }
      *
-     * @param      list  The list
+     * @param      list1 The list
      *
      * @return     { description_of_the_return_value }
      */
