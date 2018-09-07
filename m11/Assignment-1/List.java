@@ -299,13 +299,13 @@ public final class List {
      *
      * @return     { description_of_the_return_value }
      */
-    public boolean equals(final List list) {
+    public boolean equals(final List list1) {
     // Replace the code below
-        if (this.size == list.size) {
+        if (this.size == list1.size) {
             for (int i = 0; i < this.size; i++) {
                 int count = 0;
                 for (int j = 0; j < this.size; j++) {
-                    if (this.list[i] == list.list[j]) {
+                    if (this.list[i] == list1.list[j]) {
                         count++;
                     }
                 }
@@ -418,8 +418,7 @@ public final class List {
                         if (object != null) {
                             System.out.println(object);
                         }
-                    }
-                    else {
+                    } else {
                         System.out.println("Index Out of Bounds Exception");
                     }
 
