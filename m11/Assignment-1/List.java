@@ -273,7 +273,7 @@ public class List {
     public void clear()
     {
     // write the logic for clear.
-    	removeAll(list);
+    	removeAll(this.list);
 
     }
 
