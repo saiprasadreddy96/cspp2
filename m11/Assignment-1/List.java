@@ -260,7 +260,13 @@ public class List {
     // Replace the code below
     	if (this.size == list.size) {
     		for (int i = 0; i < this.size; i++) {
-    			if (this.list[i] != list.list[i]) {
+    			int count = 0;
+    			for (int j = 0; j < this.size; j++) {
+    				if (this.list[i] == list.list[j]) {
+    					count++;
+    				}
+    			}
+    			if (count == 0) {
     				return false;
     			}
     		}
