@@ -347,15 +347,22 @@ public class List {
                         l.removeAll(a);
                     }
                 break;
-                case "subList": {
+                case "subList":
                     if (tokens.length != 2) break;
                     String[] arrstring3 = tokens[1].split(",");
-                    List object = l.subList(Integer.parseInt(arrstring3[0]),
-                            Integer.parseInt(arrstring3[1]));
-                    if (object != null) 
-                        System.out.println(object);
-                    break;
-                }
+                    int start = Integer.parseInt(arrstring3[0]);
+                    int end = Integer.parseInt(arrstring3[1]);
+                    if (start >= 0 && start < l.size() && end > 0 && end <= l.size() && end > start) {
+                    	List object = l.subList(start, end);
+                        if (object != null) {
+                        	System.out.println(object);
+                        }
+                	}
+                	else {
+                		System.out.println("Index Out of Bounds Exception");
+                	}
+
+                break;
                 case "equals":
                     if (tokens.length == 2) {
                         String[] lt = tokens[1].split(",");
