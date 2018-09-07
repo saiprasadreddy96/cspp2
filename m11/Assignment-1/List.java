@@ -242,7 +242,7 @@ public class List {
     // write the logic for subList
     	List object = new List(end - start);
     	int j = 0;
-    	if (start >= 0 && start < this.size && end > 0 && end <= this.size && end > start) {
+    	if (start >= 0 && end > 0 && end > start) {
     		for (int i = start; i < end; i++) {
     			object.list[j] = this.list[i];
     			j++;
