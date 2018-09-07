@@ -63,9 +63,10 @@ public final class List {
      * some default values.
      */
     /**.
-    list
-    * @param count
-    */
+     * { function_description }
+     *
+     * @param      count  The count
+     */
     private List(final int count) {
         // what are the two variables to be initialized here? think about the
         // private variables described above. What should be the default values?
