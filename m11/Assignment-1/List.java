@@ -75,7 +75,7 @@ public final class List {
         // That is the initial value to use for size.
         list = new int[count];
         size = 0;
-        resize = 10;
+        resize = count;
     }
     /*
      * The add method does what the name suggests. Add an int item to the list.
@@ -205,11 +205,6 @@ public final class List {
         str += list[i] + "]";
         return str;
     } 
-    /*
-     * Contains return true if the list has the item passed as an argument to
-     * the method So, iterate through the list and return true if the item
-     * exists and otherwise false
-     */
     /**.
      * { function_description }
      *
@@ -241,9 +236,6 @@ public final class List {
         }
         return -1;
     }
-    /*
-    Inserts all the elements of specified int array to the end of list    
-    */
     /**.
      * Adds all.
      *
@@ -254,11 +246,7 @@ public final class List {
         for (int i = 0; i < newArray.length; i++) {
             add(newArray[i]);
         }
-    }
-    /*
-     Removes all of its elements that are contained in the specified int 
-     array.    
-    */
+    }    
      /**.
       * Removes all.
       *
@@ -275,13 +263,6 @@ public final class List {
             }
         }
     }
-    /*
-    Returns a list object containing elements, including startIndex and
-    excluding endIndex. The first parameter indicates the startIndex and the
-    second parameter indicates the endIndex. Returns null and print 
-    "Index Out of Bounds Exception" if any of values start and end are negative
-    and also if start is greater than end.
-    */
     /**.
      * { function_description }
      *
@@ -314,7 +295,7 @@ public final class List {
      *
      * @return     { description_of_the_return_value }
      */
-    public boolean equals(final List list ) {
+    public boolean equals(final List list) {
     // Replace the code below
         if (this.size == list.size) {
             for (int i = 0; i < this.size; i++) {
@@ -351,7 +332,8 @@ public final class List {
      */
     public static void main(final String[] args) {
         // create an object of the list to invoke methods on it
-        List l = new List(10);
+        final int m = 10;
+        List l = new List(m);
 
         // code to read the test cases input file
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
@@ -364,7 +346,7 @@ public final class List {
             // based on the list operation invoke the corresponding method
             switch (tokens[0]) {
                 case "add":
-                    if (tokens.length == 2){
+                    if (tokens.length == 2) {
                         String[] t = tokens[1].split(",");
                         if (t.length == 1) {
                             l.add(Integer.parseInt(tokens[1]));
@@ -404,8 +386,8 @@ public final class List {
                     if (tokens.length == 2) {
                         String[] t1 = tokens[1].split(",");
                         int[] temp = new int[t1.length];
-                        for(int i = 0; i < temp.length; i++) {
-                            temp[i]=Integer.parseInt(t1[i]);
+                        for (int i = 0; i < temp.length; i++) {
+                            temp[i] = Integer.parseInt(t1[i]);
                         }
                         l.addAll(temp);
                     }
@@ -414,8 +396,9 @@ public final class List {
                     if (tokens.length == 2) {
                         String[] t2 = tokens[1].split(",");
                         int[] a = new int[t2.length];
-                        for(int i = 0; i < t2.length; i++)
+                        for (int i = 0; i < t2.length; i++) {
                             a[i] = Integer.parseInt(t2[i]);
+                        }
                         l.removeAll(a);
                     }
                 break;
@@ -439,7 +422,7 @@ public final class List {
                     if (tokens.length == 2) {
                         String[] lt = tokens[1].split(",");
                         List l2 = new List(lt.length);
-                        for (int k = 0; k < lt.length; k++ ) {
+                        for (int k = 0; k < lt.length; k++) {
                             l2.add(Integer.parseInt(lt[k]));
                         }
                         System.out.println(l.equals(l2));
