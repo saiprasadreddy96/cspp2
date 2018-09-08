@@ -82,7 +82,9 @@ class Set {
 
      }
      public Set retainAll(int[] items) {
-     	return null;
+     	Set other = new Set(10);
+     	other.add(items);
+     	return this.intersection(other);
      }
 
 }
