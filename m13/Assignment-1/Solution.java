@@ -5,17 +5,24 @@ import java.util.Arrays;
  * Class for set.
  */
 class Set {
-    //your code goes here...
-    //Good luck :-)
+    /**.
+     * { var_description }
+     */
     private int[] set;
+    /**.
+     * { item_description }
+     */
     private int size, resize;
-    private static int m = 10;
+    /**.
+     * { var_description }
+     */
+    private static final int m = 10;
     /**.
      * Constructs the object.
      *
      * @param      capacity  The capacity
      */
-    public Set(int capacity) {
+    public Set(final int capacity) {
     	set = new int[capacity];
     	size = 0;
     	resize = m;
@@ -118,7 +125,7 @@ class Set {
      public int[][] cartesianProduct(final Set other) {
      	int r = this.size * other.size, c = 2, k = 0;
      	int[][] a = new int[r][c];
-     	for (int i = 0; i <this.size; i++) {
+     	for (int i = 0; i < this.size; i++) {
      		for (int j = 0; j < other.size; j++) {
      			a[k][0] = this.set[i];
      			a[k][1] = other.set[j];
@@ -150,7 +157,10 @@ public final class Solution {
     /**.
      * Constructs the object.
      */
-    private static int m =10;
+    private static final int m = 10;
+    /**.
+     * Constructs the object.
+     */
     private Solution() {
 
     }
@@ -245,9 +255,9 @@ public final class Solution {
                 t.add(intArray);
                 if (s.size() == 0 || t.size() == 0) {
                 	System.out.println("null");
-                } else 
-                {
-                	System.out.println(Arrays.deepToString(s.cartesianProduct(t)));
+                } else {
+                	System.out.println(Arrays.deepToString(
+                		s.cartesianProduct(t)));
                 }
                 break;
                 default:
