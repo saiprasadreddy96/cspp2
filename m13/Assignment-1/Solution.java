@@ -23,7 +23,7 @@ class Set {
      * @param      capacity  The capacity
      */
     public Set(final int capacity) {
-    	set = new int[capacity];
+        set = new int[capacity];
     	size = 0;
     	resize = m;
     }
@@ -97,8 +97,8 @@ class Set {
      public void add(final int[] items) {
      	for (int i = 0; i < items.length; i++) {
      		add(items[i]);
-     	} 
-     }
+        }
+    }
      /**.
       * { function_description }
       *
@@ -266,3 +266,6 @@ public final class Solution {
         }
     }
 }
+
+
+
