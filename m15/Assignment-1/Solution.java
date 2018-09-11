@@ -148,7 +148,7 @@ final class List {
     public void remove(final int index) throws Exception{
         // write the logic for remove here. Think about what to do to the size
         // variable.
-        if (index < 0) {
+        if (index < 0 || index >= size) {
             throw new Exception("Invalid Position Exception");
         }
         int i = index;
