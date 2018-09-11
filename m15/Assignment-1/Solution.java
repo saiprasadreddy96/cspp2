@@ -315,7 +315,7 @@ final class List {
         if (this.size == list1.size) {
             for (int i = 0; i < this.size; i++) {
                 int count = 0;
-                for (int j = 0; j < this.size; j++) {
+                for (int j = 0; j < list1.size; j++) {
                     if (this.list[i] == list1.list[j]) {
                         count++;
                     }
