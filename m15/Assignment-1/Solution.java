@@ -143,9 +143,11 @@ final class List {
     /**.
      * { function_description }
      *
-     * @param      index  The index
+     * @param      index      The index
+     *
+     * @throws     Exception  { exception_description }
      */
-    public void remove(final int index) throws Exception{
+    public void remove(final int index) throws Exception {
         // write the logic for remove here. Think about what to do to the size
         // variable.
         if (index < 0 || index >= size) {
@@ -278,14 +280,15 @@ final class List {
     /**.
      * { function_description }
      *
-     * @param      start  The start
-     * @param      end    The end
+     * @param      start      The start
+     * @param      end        The end
      *
      * @return     { description_of_the_return_value }
+     *
+     * @throws     Exception  { exception_description }
      */
     public List subList(final int start, final int end) throws Exception {
     // write the logic for subList
-        
         if (start < 0 || start == end || end > size) {
             throw new Exception("Index Out of Bounds Exception");
         }
@@ -344,9 +347,11 @@ final class List {
     /**.
      * { function_description }
      *
-     * @param      args  The arguments
+     * @param      item  The item
+     *
+     * @return     { description_of_the_return_value }
      */
-    public int count(int item) {
+    public int count(final int item) {
         int c = 0;
         for (int i = 0; i < size; i++) {
             if (item == list[i]) {
@@ -355,12 +360,16 @@ final class List {
         }
         return c;
     }
-
 }
 /**.
  * Class for solution.
  */
 public class Solution {
+    /**.
+     * Constructs the object.
+     */
+    private Solution() {
+    }
     /**.
      * { function_description }
      *
