@@ -262,7 +262,7 @@ final class List {
      public void removeAll(final int[] newArray) {
         // write the logic
         for (int i = 0; i < newArray.length; i++) {
-            for (int j = 0; j < size; j++) {
+            for (int j = 0; j < size(); j++) {
                 if (list[j] == newArray[i]) {
                     int index = j;
                     try {
@@ -270,6 +270,7 @@ final class List {
                     } catch (Exception e) {
                         System.out.println("Invalid Position Exception");
                     }
+                    j--;
                 }
             }
         }
