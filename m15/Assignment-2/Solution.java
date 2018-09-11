@@ -15,12 +15,12 @@ class Set {
     /**
      * holds the elemtns in this Set array.
      */
-    public int[] set;
+    private int[] set;
 
     /**
      * indicates the number of elememnts of this set.
      */
-    public int size;
+    private int size;
 
     /**
      * Default constructor to create an array with the szie 10.
@@ -244,10 +244,10 @@ class Sortedset extends Set {
      * @throws     SetEmptyException  { exception_description }
      */
     public int last() throws SetEmptyException {
-        if (size == 0) {
+        if (size() == 0) {
             throw new SetEmptyException("Set Empty Exception");
         } else {
-            return set[size - 1];
+            return get(size() - 1);
         }
     }
     /**
@@ -267,16 +267,16 @@ class Sortedset extends Set {
             "Invalid Arguments to Subset Exception");
         } else {
         int count = 0, temp = 0;
-        for (int i = 0; i < size; i++) {
-            if (set[i] >= fromele && set[i] < toele) {
+        for (int i = 0; i < size(); i++) {
+            if (get(i) >= fromele && get(i) < toele) {
                 count++;
             }
 
         }
         int[] arr = new int[count];
-        for (int j = 0; j < size; j++) {
-            if (set[j] >= fromele && set[j] < toele) {
-                arr[temp] = set[j];
+        for (int j = 0; j < size(); j++) {
+            if (get(j) >= fromele && get(j) < toele) {
+                arr[temp] = get(j);
                 temp++;
             }
         }
@@ -294,15 +294,15 @@ class Sortedset extends Set {
      */
     public int[] headSet(final int ele) throws SetEmptyException {
         int count = 0, temp = 0;
-        for (int i = 0; i < size; i++) {
-            if (set[i] < ele) {
+        for (int i = 0; i < size(); i++) {
+            if (get(i) < ele) {
                 count++;
             }
         }
         int[] arr = new int[count];
-        for (int i = 0; i < size; i++) {
-            if (set[i] < ele) {
-                arr[temp] = set[i];
+        for (int i = 0; i < size(); i++) {
+            if (get(i) < ele) {
+                arr[temp] = get(i);
                 temp++;
             }
         }
