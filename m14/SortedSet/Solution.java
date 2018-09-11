@@ -287,7 +287,7 @@ public final class Solution {
                 case "print":
                     System.out.println(s);
                     break;
-                case "add":
+                case "addAll":
                     int[] intArray = intArray(tokens[1]);
                     if (intArray.length == 1) {
                         s.add(intArray[0]);
