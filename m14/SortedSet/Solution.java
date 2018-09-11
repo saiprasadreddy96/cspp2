@@ -98,7 +98,7 @@ class Set {
     }
     public int getindex(int item) {
         int i = 0;
-        while (set[i] <= item && i < size) {
+        while (set[i] < item && i < size) {
             i++;
         }
         return i;
