@@ -16,7 +16,7 @@ class Set {
     /**.
      * { var_description }
      */
-    private static final int M = 10;
+    private static final int magic1 = 10;
     /**.
      * Constructs the object.
      *
@@ -25,7 +25,7 @@ class Set {
     protected Set(final int capacity) {
         set = new int[capacity];
         size = 0;
-        resize = M;
+        resize = magic1;
     }
     /**.
      * { function_description }
@@ -170,7 +170,7 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public Set intersection(final Set other) {
-     	Set is = new Set(M);
+     	Set is = new Set(magic1);
      	for (int i = 0; i < size; i++) {
      		if (other.contains(this.set[i])) {
      			is.add(this.set[i]);
@@ -205,7 +205,7 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public Set retainAll(final int[] items) {
-     	Set other = new Set(M);
+     	Set other = new Set(magic1);
      	other.add(items);
      	return this.intersection(other);
      }
@@ -268,8 +268,8 @@ class SortedSet extends Set {
      * @return     { description_of_the_return_value }
      */
     public Set subSet(final int fromelement, final int toelement) {
-        final int M = 10;
-        Set other = new  Set(M);
+        final int magic2 = 10;
+        Set other = new  Set(magic2);
         for (int i = this.getindex(fromelement); 
                 i < this.getindex(toelement); i++) {
             other.add(this.get(i));
@@ -297,7 +297,7 @@ public final class Solution {
     /**.
      * Constructs the object.
      */
-    private static final int M = 10;
+    private static final int magic3 = 10;
     /**.
      * Constructs the object.
      */
@@ -342,8 +342,7 @@ public final class Solution {
      */
     public static void main(final String[] args) {
         // instantiate this set
-        final int M = 10;
-        SortedSet s = new SortedSet(M);
+        SortedSet s = new SortedSet(magic3);
         // code to read the test cases input file
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
         // check if there is one more line to process
@@ -372,8 +371,8 @@ public final class Solution {
                     }
                     break;
                 case "intersection":
-                    s = new SortedSet(M);
-                    SortedSet t = new SortedSet(M);
+                    s = new SortedSet(magic3);
+                    SortedSet t = new SortedSet(magic3);
                     intArray = intArray(tokens[1]);
                     s.add(intArray);
                     intArray = intArray(tokens[2]);
@@ -381,15 +380,15 @@ public final class Solution {
                     System.out.println(s.intersection(t));
                     break;
                 case "retainAll":
-                    s = new SortedSet(M);
+                    s = new SortedSet(magic3);
                     intArray = intArray(tokens[1]);
                     s.add(intArray);
                     intArray = intArray(tokens[2]);
                     System.out.println(s.retainAll(intArray));
                     break;
                 case "cartesianProduct":
-                    s = new SortedSet(M);
-                    t = new SortedSet(M);
+                    s = new SortedSet(magic3);
+                    t = new SortedSet(magic3);
                     intArray = intArray(tokens[1]);
                     s.add(intArray);
                     intArray = intArray(tokens[2]);
