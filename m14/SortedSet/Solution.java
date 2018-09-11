@@ -330,7 +330,11 @@ public final class Solution {
                     break;
                 case "subSet":
                     int[] intArray1 = intArray(tokens[1]);
-                    System.out.println(s.subSet(intArray1[0], intArray1[1]));
+                    if (intArray1[0] <= intArray1[1]) {
+                       System.out.println(s.subSet(intArray1[0], intArray1[1]));
+                    } else {
+                        System.out.println("Invalid Arguments to Subset Exception");
+                    }
                     break;
                 case "headSet":
                     int[] intArray2 = intArray(tokens[1]);
