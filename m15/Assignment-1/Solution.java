@@ -145,9 +145,12 @@ final class List {
      *
      * @param      index  The index
      */
-    public void remove(final int index) {
+    public void remove(final int index) throws Exception{
         // write the logic for remove here. Think about what to do to the size
         // variable.
+        if (index < 0) {
+            throw new Exception("Invalid Position Exception");
+        }
         int i = index;
         for (i = index; i < size - 1; i++) {
             list[i] = list[i + 1];
@@ -262,7 +265,11 @@ final class List {
             for (int j = 0; j < size; j++) {
                 if (list[j] == newArray[i]) {
                     int index = j;
-                    remove(index);
+                    try {
+                       remove(index);
+                    } catch (Exception e) {
+                        System.out.println("Invalid Position Exception");
+                    }
                 }
             }
         }
@@ -376,9 +383,14 @@ public class Solution {
                     System.out.println(l);
                 break;
                 case "remove":
-                    if (tokens.length == 2) {
-                        l.remove(Integer.parseInt(tokens[1]));
+                    try {
+                        if (tokens.length == 2) {
+                            l.remove(Integer.parseInt(tokens[1]));
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
                     }
+
                 break;
                 case "indexOf":
                     if (tokens.length == 2) {
