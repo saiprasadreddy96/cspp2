@@ -51,7 +51,7 @@ class Set {
      * @return     { description_of_the_return_value }
      */
     public boolean contains(final int item) {
-    	for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
     		if (set[i] == item) {
     			return true;
     		}
