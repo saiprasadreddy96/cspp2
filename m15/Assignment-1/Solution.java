@@ -287,7 +287,7 @@ final class List {
     // write the logic for subList
         List object = new List(end - start);
         int j = 0;
-        if (start < 0 || end <= 0 || start >= end || size() == 0) {
+        if (start < 0 || end <= 0 || start >= end || size() == 0 || end > size) {
             throw new Exception("Index Out of Bounds Exception");
         }
         if (start >= 0 && end > 0 && end > start) {
