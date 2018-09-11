@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.Arrays;
 import java.io.BufferedInputStream;
+/**.
+ * Class for set.
+ */
 class Set {
     /**.
      * { var_description }
@@ -9,7 +12,7 @@ class Set {
     /**.
      * { item_description }
      */
-    public int size, resize;
+    private int size, resize;
     /**.
      * { var_description }
      */
@@ -19,9 +22,9 @@ class Set {
      *
      * @param      capacity  The capacity
      */
-    public Set(final int capacity) {
+    protected Set(final int capacity) {
         set = new int[capacity];
-    	size = 0;
+        size = 0;
     	resize = m;
     }
     /**.
@@ -31,6 +34,14 @@ class Set {
      */
     public int size() {
     	return size;
+    }
+    /**.
+     * { function_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int resize1() {
+        return resize;
     }
     /**.
      * { function_description }
@@ -96,14 +107,27 @@ class Set {
      		add(items[i]);
         }
     }
-    public int getindex(int item) {
+    /**.
+     * { function_description }
+     *
+     * @param      item  The item
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int getindex(final int item) {
         int i = 0;
         while (set[i] < item && i < size) {
             i++;
         }
         return i;
     }
-    public void add(int index, int item) {
+    /**.
+     * { function_description }
+     *
+     * @param      index  The index
+     * @param      item   The item
+     */
+    public void add(final int index, final int item) {
         int item1 = item, temp, i = index;
         for (i = index; i < size; i++) {
             temp = set[i];
@@ -113,10 +137,24 @@ class Set {
         set[i] = item1;
         size++;
     }
-    public int get(int index) {
+    /**.
+     * { function_description }
+     *
+     * @param      index  The index
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int get(final int index) {
         return set[index];
     }
-    public int indexOf(int item) {
+    /**.
+     * Searches for the first match.
+     *
+     * @param      item  The item
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int indexOf(final int item) {
         for (int i = 0; i < size; i++) {
             if (set[i] == item) {
                 return i;
@@ -178,6 +216,8 @@ class Set {
 class SortedSet extends Set {
     /**.
      * Constructs the object.
+     *
+     * @param      capacity  The capacity
      */
     public SortedSet(final int capacity) {
         super(capacity);
@@ -188,8 +228,8 @@ class SortedSet extends Set {
      * @param      item  The item
      */
     public void add(final int item) {
-        if(!contains(item)) {
-            if (size() == resize) {
+        if (!contains(item)) {
+            if (size() == resize1()) {
                 resize();
             }
             int index = getindex(item);
@@ -229,7 +269,7 @@ class SortedSet extends Set {
      */
     public Set subSet(final int fromelement, final int toelement) {
         Set other = new  Set(10);
-        for(int i = this.getindex(fromelement); i < this.getindex(toelement); i++) {
+        for (int i = this.getindex(fromelement); i < this.getindex(toelement); i++) {
             other.add(this.get(i));
         }
         return other;
