@@ -53,7 +53,7 @@ class Set {
     public boolean contains(final int item) {
         for (int i = 0; i < size; i++) {
            if (set[i] == item) {
-    			return true;
+              return true;
     		}
     	}
     	return false;
@@ -270,8 +270,8 @@ class SortedSet extends Set {
     public Set subSet(final int fromelement, final int toelement) {
         final int magical = 10;
         Set other = new  Set(magical);
-        for (int i = this.getindex(fromelement); 
-                i < this.getindex(toelement); i++) {
+        for (int i = this.getindex(fromelement);
+               i < this.getindex(toelement); i++) {
             other.add(this.get(i));
         }
         return other;
