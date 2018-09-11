@@ -202,7 +202,7 @@ class SortedSet extends Set {
     }
     public Set subSet(int fromelement, int toelement) {
         Set other = new  Set(10);
-        for(int i = this.indexOf(fromelement); i < this.indexOf(toelement); i++) {
+        for(int i = this.getindex(fromelement); i < this.getindex(toelement); i++) {
             other.add(this.get(i));
         }
         return other;
