@@ -16,7 +16,7 @@ class Set {
     /**.
      * { var_description }
      */
-    private static final int m = 10;
+    private static final int M = 10;
     /**.
      * Constructs the object.
      *
@@ -25,7 +25,7 @@ class Set {
     protected Set(final int capacity) {
         set = new int[capacity];
         size = 0;
-    	resize = m;
+        resize = M;
     }
     /**.
      * { function_description }
@@ -170,7 +170,7 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public Set intersection(final Set other) {
-     	Set is = new Set(m);
+     	Set is = new Set(M);
      	for (int i = 0; i < size; i++) {
      		if (other.contains(this.set[i])) {
      			is.add(this.set[i]);
@@ -205,7 +205,7 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public Set retainAll(final int[] items) {
-     	Set other = new Set(m);
+     	Set other = new Set(M);
      	other.add(items);
      	return this.intersection(other);
      }
@@ -219,7 +219,7 @@ class SortedSet extends Set {
      *
      * @param      capacity  The capacity
      */
-    public SortedSet(final int capacity) {
+    protected SortedSet(final int capacity) {
         super(capacity);
     }
     /**.
@@ -268,8 +268,10 @@ class SortedSet extends Set {
      * @return     { description_of_the_return_value }
      */
     public Set subSet(final int fromelement, final int toelement) {
-        Set other = new  Set(10);
-        for (int i = this.getindex(fromelement); i < this.getindex(toelement); i++) {
+        final int M = 10;
+        Set other = new  Set(M);
+        for (int i = this.getindex(fromelement); 
+                i < this.getindex(toelement); i++) {
             other.add(this.get(i));
         }
         return other;
@@ -295,7 +297,7 @@ public final class Solution {
     /**.
      * Constructs the object.
      */
-    private static final int m = 10;
+    private static final int M = 10;
     /**.
      * Constructs the object.
      */
@@ -340,7 +342,8 @@ public final class Solution {
      */
     public static void main(final String[] args) {
         // instantiate this set
-        SortedSet s = new SortedSet(m);
+        final int M = 10;
+        SortedSet s = new SortedSet(M);
         // code to read the test cases input file
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
         // check if there is one more line to process
@@ -369,8 +372,8 @@ public final class Solution {
                     }
                     break;
                 case "intersection":
-                    s = new SortedSet(m);
-                    SortedSet t = new SortedSet(m);
+                    s = new SortedSet(M);
+                    SortedSet t = new SortedSet(M);
                     intArray = intArray(tokens[1]);
                     s.add(intArray);
                     intArray = intArray(tokens[2]);
@@ -378,15 +381,15 @@ public final class Solution {
                     System.out.println(s.intersection(t));
                     break;
                 case "retainAll":
-                    s = new SortedSet(m);
+                    s = new SortedSet(M);
                     intArray = intArray(tokens[1]);
                     s.add(intArray);
                     intArray = intArray(tokens[2]);
                     System.out.println(s.retainAll(intArray));
                     break;
                 case "cartesianProduct":
-                    s = new SortedSet(m);
-                    t = new SortedSet(m);
+                    s = new SortedSet(M);
+                    t = new SortedSet(M);
                     intArray = intArray(tokens[1]);
                     s.add(intArray);
                     intArray = intArray(tokens[2]);
@@ -406,7 +409,8 @@ public final class Solution {
                     if (intArray1[0] <= intArray1[1]) {
                        System.out.println(s.subSet(intArray1[0], intArray1[1]));
                     } else {
-                        System.out.println("Invalid Arguments to Subset Exception");
+                        System.out.
+                            println("Invalid Arguments to Subset Exception");
                     }
                     break;
                 case "headSet":
