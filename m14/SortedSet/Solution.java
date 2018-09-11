@@ -54,9 +54,9 @@ class Set {
         for (int i = 0; i < size; i++) {
            if (set[i] == item) {
               return true;
-    		}
-    	}
-    	return false;
+            }
+        }
+        return false;
     }
     /**.
      * Returns a string representation of the object.
@@ -64,16 +64,16 @@ class Set {
      * @return     String representation of the object.
      */
     public String toString() {
-    	if (size == 0) {
-    		return "{}";
-    	}
-    	String str = "{";
-    	int i = 0;
-    	for (i = 0; i < size - 1; i++) {
-    		str += set[i] + ", ";
-    	}
-    	str += set[i] + "}";
-    	return str;
+        if (size == 0) {
+            return "{}";
+        }
+        String str = "{";
+        int i = 0;
+        for (i = 0; i < size - 1; i++) {
+            str += set[i] + ", ";
+        }
+        str += set[i] + "}";
+        return str;
      }
      /**.
       * { function_description }
@@ -81,21 +81,21 @@ class Set {
       * @param      item  The item
       */
      public void add(final int item) {
-     	if (!contains(item)) {
-     		if (size == resize) {
-     			resize();
-     		}
-     		set[size++] = item;
-     	}
+        if (!contains(item)) {
+            if (size == resize) {
+                resize();
+            }
+            set[size++] = item;
+        }
      }
      /**.
       * { function_description }
       */
      public void resize() {
-     	resize = 2 * size;
-     	int[] set1 = new int[resize];
-     	System.arraycopy(set, 0, set1, 0, set.length);
-     	set = set1;
+        resize = 2 * size;
+        int[] set1 = new int[resize];
+        System.arraycopy(set, 0, set1, 0, set.length);
+        set = set1;
      }
      /**.
       * { function_description }
@@ -103,8 +103,8 @@ class Set {
       * @param      items  The items
       */
      public void add(final int[] items) {
-     	for (int i = 0; i < items.length; i++) {
-     		add(items[i]);
+        for (int i = 0; i < items.length; i++) {
+            add(items[i]);
         }
     }
     /**.
@@ -170,13 +170,13 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public Set intersection(final Set other) {
-     	Set is = new Set(MAGIC);
-     	for (int i = 0; i < size; i++) {
-     		if (other.contains(this.set[i])) {
-     			is.add(this.set[i]);
-     		}
-     	}
-     	return is;
+        Set is = new Set(MAGIC);
+        for (int i = 0; i < size; i++) {
+            if (other.contains(this.set[i])) {
+                is.add(this.set[i]);
+            }
+        }
+        return is;
      }
      /**.
       * { function_description }
@@ -186,16 +186,16 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public int[][] cartesianProduct(final Set other) {
-     	int r = this.size * other.size, c = 2, k = 0;
-     	int[][] a = new int[r][c];
-     	for (int i = 0; i < this.size; i++) {
-     		for (int j = 0; j < other.size; j++) {
-     			a[k][0] = this.set[i];
-     			a[k][1] = other.set[j];
-     			k++;
-     		}
-     	}
-     	return a;
+        int r = this.size * other.size, c = 2, k = 0;
+        int[][] a = new int[r][c];
+        for (int i = 0; i < this.size; i++) {
+            for (int j = 0; j < other.size; j++) {
+                a[k][0] = this.set[i];
+                a[k][1] = other.set[j];
+                k++;
+            }
+        }
+        return a;
      }
      /**.
       * { function_description }
@@ -205,9 +205,9 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public Set retainAll(final int[] items) {
-     	Set other = new Set(MAGIC);
-     	other.add(items);
-     	return this.intersection(other);
+        Set other = new Set(MAGIC);
+        other.add(items);
+        return this.intersection(other);
      }
  }
  /**.
