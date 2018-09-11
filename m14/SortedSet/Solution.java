@@ -193,6 +193,10 @@ class SortedSet extends Set {
 
     }
     public int last() {
+        if (size() == 0) {
+            System.out.println("Set Empty Exception");
+            return -1;
+        }
         return get(size() - 1);
     }
     public void add(int[] items) {
@@ -326,12 +330,8 @@ public final class Solution {
                     }
                     break;
                 case "last":
-                    if (s.size() == 0) {
-                        System.out.println("Set Empty Exception");
-                    } else {
                         System.out.println(s.last());
-                    }
-                    break;
+                        break;
                 case "subSet":
                     int[] intArray1 = intArray(tokens[1]);
                     if (intArray1[0] <= intArray1[1]) {
