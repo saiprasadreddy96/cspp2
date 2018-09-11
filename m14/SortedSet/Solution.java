@@ -16,7 +16,7 @@ class Set {
     /**.
      * { var_description }
      */
-    private static final int magic1 = 10;
+    private static final int magic = 10;
     /**.
      * Constructs the object.
      *
@@ -25,7 +25,7 @@ class Set {
     protected Set(final int capacity) {
         set = new int[capacity];
         size = 0;
-        resize = magic1;
+        resize = magic;
     }
     /**.
      * { function_description }
@@ -52,7 +52,7 @@ class Set {
      */
     public boolean contains(final int item) {
         for (int i = 0; i < size; i++) {
-    		if (set[i] == item) {
+           if (set[i] == item) {
     			return true;
     		}
     	}
@@ -170,7 +170,7 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public Set intersection(final Set other) {
-     	Set is = new Set(magic1);
+     	Set is = new Set(magic);
      	for (int i = 0; i < size; i++) {
      		if (other.contains(this.set[i])) {
      			is.add(this.set[i]);
@@ -205,7 +205,7 @@ class Set {
       * @return     { description_of_the_return_value }
       */
      public Set retainAll(final int[] items) {
-     	Set other = new Set(magic1);
+     	Set other = new Set(magic);
      	other.add(items);
      	return this.intersection(other);
      }
