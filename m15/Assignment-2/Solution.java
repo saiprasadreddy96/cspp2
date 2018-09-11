@@ -286,7 +286,8 @@ class SortedSet extends Set {
      * @return     { description_of_the_return_value }
      */
     public Set headSet(final int toelement) throws Exception {
-        if (size() == 0) {
+        int index1 = getindex(toelement);
+        if (size() == 0 && index1 <= 0) {
             throw new Exception("Set Empty Exception");
         }
         return subSet(get(0), toelement);
