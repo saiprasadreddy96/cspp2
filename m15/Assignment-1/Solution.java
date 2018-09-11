@@ -345,7 +345,15 @@ final class List {
      *
      * @param      args  The arguments
      */
-
+    public int count(int item) {
+        int c = 0;
+        for (int i = 0; i < size; i++) {
+            if (item == list[i]) {
+                c++;
+            }
+        }
+        return c;
+    }
 
 }
 /**.
@@ -463,6 +471,8 @@ public class Solution {
                 case "clear":
                     l.clear();
                 break;
+                case "count":
+                    System.out.println(l.count(Integer.parseInt(tokens[1])));
                 default:
                 break;
             }
