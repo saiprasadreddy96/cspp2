@@ -438,7 +438,7 @@ public class Solution {
                     String[] arrstring3 = tokens[1].split(",");
                     int start = Integer.parseInt(arrstring3[0]);
                     int end = Integer.parseInt(arrstring3[1]);
-                    if (start >= 0 && end >= 0 && end >= start) {
+                    if (start >= 0 && end >= 0 && end > start) {
                         List object = l.subList(start, end);
                         if (object != null) {
                             System.out.println(object);
