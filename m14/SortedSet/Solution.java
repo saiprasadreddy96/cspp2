@@ -326,7 +326,11 @@ public final class Solution {
                     }
                     break;
                 case "last":
-                    System.out.println(s.last());
+                    if (s.size() == 0) {
+                        System.out.println("Set Empty Exception");
+                    } else {
+                        System.out.println(s.last());
+                    }
                     break;
                 case "subSet":
                     int[] intArray1 = intArray(tokens[1]);
