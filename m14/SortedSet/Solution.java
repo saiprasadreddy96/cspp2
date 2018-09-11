@@ -179,10 +179,15 @@ class SortedSet extends Set {
     /**.
      * Constructs the object.
      */
-    public SortedSet(int capacity) {
+    public SortedSet(final int capacity) {
         super(capacity);
     }
-    public void add(int item) {
+    /**.
+     * { function_description }
+     *
+     * @param      item  The item
+     */
+    public void add(final int item) {
         if(!contains(item)) {
             if (size() == resize) {
                 resize();
@@ -192,6 +197,11 @@ class SortedSet extends Set {
         }
 
     }
+    /**.
+     * { function_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
     public int last() {
         if (size() == 0) {
             System.out.println("Set Empty Exception");
@@ -199,23 +209,42 @@ class SortedSet extends Set {
         }
         return get(size() - 1);
     }
-    public void add(int[] items) {
+    /**.
+     * { function_description }
+     *
+     * @param      items  The items
+     */
+    public void add(final int[] items) {
         for (int i = 0; i < items.length; i++) {
             add(items[i]);
         }
     }
-    public Set subSet(int fromelement, int toelement) {
+    /**.
+     * { function_description }
+     *
+     * @param      fromelement  The fromelement
+     * @param      toelement    The toelement
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public Set subSet(final int fromelement, final int toelement) {
         Set other = new  Set(10);
         for(int i = this.getindex(fromelement); i < this.getindex(toelement); i++) {
             other.add(this.get(i));
         }
         return other;
     }
-    public Set headSet(int toelement) {
+    /**.
+     * { function_description }
+     *
+     * @param      toelement  The toelement
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public Set headSet(final int toelement) {
         return subSet(get(0), toelement);
     }
-
- }
+}
  /**
  * Solution class for code-eval.
  */
