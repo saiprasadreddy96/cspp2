@@ -1,158 +1,186 @@
 import java.util.Scanner;
-import java.util.Arrays;
 import java.io.BufferedInputStream;
-/**.
- * Class for set.
+import java.util.Arrays;
+/**
+ * Exception for signaling invalid subset selection errors.
  */
 class Set {
-    /**.
-     * { var_description }
+
+    /**
+     * This constant is used to create an array
+     * with the initial capacity.
      */
-    private int[] set;
-    /**.
-     * { item_description }
+    public static final int TEN = 10;
+
+    /**
+     * holds the elemtns in this Set array.
      */
-    private int size, resize;
-    /**.
-     * { var_description }
+    public int[] set;
+
+    /**
+     * indicates the number of elememnts of this set.
      */
-    private static final int MAGIC = 10;
-    /**.
-     * Constructs the object.
-     *
-     * @param      capacity  The capacity
+    public int size;
+
+    /**
+     * Default constructor to create an array with the szie 10.
      */
-    protected Set(final int capacity) {
-        set = new int[capacity];
+    Set() {
+        set = new int[TEN];
         size = 0;
-        resize = MAGIC;
     }
-    /**.
-     * { function_description }
+
+    /**
+     * { function_description }.
      *
      * @return     { description_of_the_return_value }
+     */
+    public int max() {
+        int max = 0;
+        for (int i = 0; i < size; i++) {
+            if (set[i] > max) {
+                max = set[i];
+            }
+        }
+        return max;
+    }
+    /**
+     * { function_description }.
+     *
+     * @param      item  The item
+     */
+    public void add(final int item) {
+        int max;
+        if (size == set.length) {
+            resize();
+        }
+        if (!contains(item)) {
+            max = max();
+            if (size == 0 || item > max) {
+                set[size++] = item;
+            } else {
+            for (int i = 0; i < size; i++) {
+                    if (set[i] > item) {
+                        for (int j = size; j > i; j--) {
+                            set[j] = set[j - 1];
+                        }
+                        set[i] = item;
+                        break;
+                    }
+                }
+                size++;
+            }
+        }
+    }
+    /**
+     * resize the set by double, when it is full.
+     */
+    public void resize() {
+        set = java.util.Arrays.copyOf(set, size * 2);
+    }
+    /**
+     * Finds the intersection of the two sets.
+     * @param  other as set 2.
+     * @return the result that contains the common
+     * elements of the two sets.
+     */
+    public Set intersection(final Set other) {
+        Set result = new Set();
+        for (int i = 0; i < this.size; i++) {
+            if (other.contains(this.get(i))) {
+                result.add(this.get(i));
+            }
+        }
+        return result;
+    }
+
+    /**
+     * retains all the elements from the set.
+     * @param  arr is a form of set2.
+     * @return the set that contains all the elements
+     * of this set.
+     */
+    public Set retainAll(final int[] arr) {
+        Set other = new Set();
+        for (int item : arr) {
+            other.add(item);
+        }
+        return intersection(other);
+    }
+
+    /**
+     * This finds out the cartesian product of two sets.
+     * @param  other as a Set 2.
+     * @return the cartesian product in the form of 2D array.
+     */
+    public int[][] cartesianProduct(final Set other) {
+        int[][] result = new int[this.size() * other.size()][2];
+        int k = -1;
+        if (this.size() == 0 || other.size() == 0) {
+            return null;
+        }
+        for (int i = 0; i < this.size(); i++) {
+            for (int j = 0; j < other.size(); j++) {
+                result[++k][0] = this.get(i);
+                result[k][1] = other.get(j);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * This methods finds out the number of elements in the set.
+     * @return the integer value indicates the number of elements.
      */
     public int size() {
-       return size;
+        return size;
     }
-    /**.
-     * { function_description }
-     *
-     * @return     { description_of_the_return_value }
-     */
-    public int resize1() {
-        return resize;
-    }
-    /**.
-     * { function_description }
-     *
-     * @param      item  The item
-     *
-     * @return     { description_of_the_return_value }
-     */
-    public boolean contains(final int item) {
-        for (int i = 0; i < size; i++) {
-           if (set[i] == item) {
-              return true;
-            }
-        }
-        return false;
-    }
-    /**.
-     * Returns a string representation of the object.
-     *
-     * @return     String representation of the object.
-     */
-    public String toString() {
-        if (size == 0) {
-            return "{}";
-        }
-        String str = "{";
-        int i = 0;
-        for (i = 0; i < size - 1; i++) {
-            str += set[i] + ", ";
-        }
-        str += set[i] + "}";
-        return str;
-     }
-     /**.
-      * { function_description }
-      *
-      * @param      item  The item
-      */
-     public void add(final int item) {
-        if (!contains(item)) {
-            if (size == resize) {
-                resize();
-            }
-            set[size++] = item;
-        }
-     }
-     /**.
-      * { function_description }
-      */
-     public void resize() {
-        resize = 2 * size;
-        int[] set1 = new int[resize];
-        System.arraycopy(set, 0, set1, 0, set.length);
-        set = set1;
-     }
-     /**.
-      * { function_description }
-      *
-      * @param      items  The items
-      */
-     public void add(final int[] items) {
-        for (int i = 0; i < items.length; i++) {
-            add(items[i]);
-        }
-    }
-    /**.
-     * { function_description }
-     *
-     * @param      item  The item
-     *
-     * @return     { description_of_the_return_value }
-     */
-    public int getindex(final int item) {
-        int i = 0;
-        while (set[i] < item && i < size) {
-            i++;
-        }
-        return i;
-    }
-    /**.
-     * { function_description }
-     *
-     * @param      index  The index
-     * @param      item   The item
-     */
-    public void add(final int index, final int item) {
-        int item1 = item, temp, i = index;
-        for (i = index; i < size; i++) {
-            temp = set[i];
-            set[i] = item1;
-            item1 = temp;
-        }
-        set[i] = item1;
-        size++;
-    }
-    /**.
-     * { function_description }
-     *
-     * @param      index  The index
-     *
-     * @return     { description_of_the_return_value }
+
+    /**
+     * This method finds out the elements
+     * at a particular index.
+     * @param  index to return the element at this index.
+     * @return the element at this index, otherwise return -1.
      */
     public int get(final int index) {
-        return set[index];
+        if (index < 0 || index >= this.size()) {
+            return -1;
+        } else {
+            return set[index];
+        }
     }
-    /**.
-     * Searches for the first match.
-     *
-     * @param      item  The item
-     *
-     * @return     { description_of_the_return_value }
+
+    /**
+     * String version of the object.
+     * @return string.
+     */
+    public String toString() {
+        if (this.size() == 0) {
+            return "{}";
+        }
+        StringBuilder sb = new StringBuilder("{");
+        for (int i = 0; i < size - 1; i++) {
+            sb.append(set[i] + ", ");
+        }
+        sb.append(set[size - 1] + "}");
+        return sb.toString();
+    }
+
+    /**
+     * returns true if this set contains the item.
+     * @param  item as a parameter to be checked in the set.
+     * @return      true if the item present in the set,
+     *                   otherwise false.
+     */
+    public boolean contains(final int item) {
+        return indexOf(item) != -1;
+    }
+
+    /**
+     * Finds the index of the item in this set.
+     * @param  item to be find in this set.
+     * @return the index if the item is found in this set,
+     * otherwise false.
      */
     public int indexOf(final int item) {
         for (int i = 0; i < size; i++) {
@@ -162,163 +190,143 @@ class Set {
         }
         return -1;
     }
-     /**.
-      * { function_description }
-      *
-      * @param      other  The other
-      *
-      * @return     { description_of_the_return_value }
-      */
-     public Set intersection(final Set other) {
-        Set is = new Set(MAGIC);
-        for (int i = 0; i < size; i++) {
-            if (other.contains(this.set[i])) {
-                is.add(this.set[i]);
-            }
-        }
-        return is;
-     }
-     /**.
-      * { function_description }
-      *
-      * @param      other  The other
-      *
-      * @return     { description_of_the_return_value }
-      */
-     public int[][] cartesianProduct(final Set other) {
-        int r = this.size * other.size, c = 2, k = 0;
-        int[][] a = new int[r][c];
-        for (int i = 0; i < this.size; i++) {
-            for (int j = 0; j < other.size; j++) {
-                a[k][0] = this.set[i];
-                a[k][1] = other.set[j];
-                k++;
-            }
-        }
-        return a;
-     }
-     /**.
-      * { function_description }
-      *
-      * @param      items  The items
-      *
-      * @return     { description_of_the_return_value }
-      */
-     public Set retainAll(final int[] items) {
-        Set other = new Set(MAGIC);
-        other.add(items);
-        return this.intersection(other);
-     }
- }
- /**.
-  * Class for sorted set.
-  */
-class SortedSet extends Set {
-    /**.
-     * Constructs the object.
-     *
-     * @param      capacity  The capacity
-     */
-    protected SortedSet(final int capacity) {
-        super(capacity);
-    }
-    /**.
-     * { function_description }
-     *
-     * @param      item  The item
-     */
-    public void add(final int item) {
-        if (!contains(item)) {
-            if (size() == resize1()) {
-                resize();
-            }
-            int index = getindex(item);
-            super.add(index, item);
-        }
-
-    }
-    /**.
-     * { function_description }
-     *
-     * @return     { description_of_the_return_value }
-     */
-    public int last() throws Exception {
-        if (size() == 0) {
-            throw new Exception("Set Empty Exception");
-        }
-        return get(size() - 1);
-    }
-    /**.
-     * { function_description }
-     *
-     * @param      items  The items
-     */
-    public void add(final int[] items) {
-        for (int i = 0; i < items.length; i++) {
-            add(items[i]);
-        }
-    }
-    /**.
-     * { function_description }
-     *
-     * @param      fromelement  The fromelement
-     * @param      toelement    The toelement
-     *
-     * @return     { description_of_the_return_value }
-     */
-    public Set subSet(final int fromelement, final int toelement) throws Exception {
-        final int magical = 10;
-        Set other = new  Set(magical);
-        if (toelement < fromelement) {
-            throw new Exception("Invalid​ Arguments​ to​ Subset​ Exception");
-        }
-        for (int i = this.getindex(fromelement);
-               i < this.getindex(toelement); i++) {
-            other.add(this.get(i));
-        }
-        return other;
-    }
-    /**.
-     * { function_description }
-     *
-     * @param      toelement  The toelement
-     *
-     * @return     { description_of_the_return_value }
-     */
-    public Set headSet(final int toelement) throws Exception {
-        int index1 = getindex(toelement);
-        if (size() == 0 && index1 <= 0) {
-            throw new Exception("Set Empty Exception");
-        }
-        return subSet(get(0), toelement);
-    }
 }
- /**
- * Solution class for code-eval.
+/**.
+ * Exception for signaling invalid subset selection errors.
  */
-public final class Solution {
+class InvalidSubsetSelectionException extends Exception {
     /**
      * Constructs the object.
+     *
+     * @param      str     { parameter_description }
      */
-    /**.
+    InvalidSubsetSelectionException(final String str) {
+        super(str);
+    }
+}
+/**
+ * Exception for signaling set empty errors.
+ */
+class SetEmptyException extends Exception {
+    /**
      * Constructs the object.
+     *
+     * @param      str     { parameter_description }
      */
-    private static final int MAGIC3 = 10;
-    /**.
+    SetEmptyException(final String str) {
+        super(str);
+    }
+}
+/**
+ * Class for sortedset.
+ */
+class Sortedset extends Set {
+    /**
+     * holds the elemtns in this Set array.
+     */
+    Sortedset() {
+    }
+    /**
+     * add all elements of the array to this Set.
+     * @param arr as an arr to be added in this set,
+     *            if the element is not present in this set.
+     */
+    public void addAll(final int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            add(arr[i]);
+        }
+    }
+    /**
+     * { function_description }.
+     *
+     * @return     { description_of_the_return_value }
+     *
+     * @throws     SetEmptyException  { exception_description }
+     */
+    public int last() throws SetEmptyException {
+        if (size == 0) {
+            throw new SetEmptyException("Set Empty Exception");
+        } else {
+            return set[size - 1];
+        }
+    }
+    /**
+     * { function_description }.
+     *
+     * @param      fromele                          The fromele
+     * @param      toele                            The toele
+     *
+     * @return     { description_of_the_return_value }
+     *
+     * @throws     InvalidSubsetSelectionException  { exception_description }
+     */
+    public int[] subSet(final int fromele, final int toele)
+        throws InvalidSubsetSelectionException {
+        if (fromele > toele) {
+            throw new InvalidSubsetSelectionException(
+            "Invalid Arguments to Subset Exception");
+        } else {
+        int count = 0, temp = 0;
+        for (int i = 0; i < size; i++) {
+            if (set[i] >= fromele && set[i] < toele) {
+                count++;
+            }
+
+        }
+        int[] arr = new int[count];
+        for (int j = 0; j < size; j++) {
+            if (set[j] >= fromele && set[j] < toele) {
+                arr[temp] = set[j];
+                temp++;
+            }
+        }
+        return arr;
+        }
+    }
+    /**
+     * { function_description }.
+     *
+     * @param      ele                The ele
+     *
+     * @return     { description_of_the_return_value }
+     *
+     * @throws     SetEmptyException  { exception_description }
+     */
+    public int[] headSet(final int ele) throws SetEmptyException {
+        int count = 0, temp = 0;
+        for (int i = 0; i < size; i++) {
+            if (set[i] < ele) {
+                count++;
+            }
+        }
+        int[] arr = new int[count];
+        for (int i = 0; i < size; i++) {
+            if (set[i] < ele) {
+                arr[temp] = set[i];
+                temp++;
+            }
+        }
+        if (arr.length == 0) {
+            throw new SetEmptyException("Set Empty Exception");
+        }
+        return arr;
+    }
+
+}
+/**
+ * Class for solution.
+ */
+final class Solution {
+    /**
      * Constructs the object.
      */
     private Solution() {
-
+        /**
+         * { item_description }.
+         */
     }
     /**
-     * helper function to convert string input to int array.
-     *
-     * @param      s     { string input from test case file }
-     *
-     * @return     { int array from the given string }
-     */
-    /**.
-     * { function_description }
+     * { function_description }.
      *
      * @param      s     { parameter_description }
      *
@@ -337,19 +345,13 @@ public final class Solution {
                             .toArray();
     }
     /**
-     * main function to execute test cases.
-     *
-     * @param      args  The arguments
-     */
-    /**.
-     * { function_description }
+     * { function_description }.
      *
      * @param      args  The arguments
      */
     public static void main(final String[] args) {
-        // instantiate this set
-        SortedSet s = new SortedSet(MAGIC3);
         // code to read the test cases input file
+        Sortedset s = new Sortedset();
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
         // check if there is one more line to process
         while (stdin.hasNext()) {
@@ -359,82 +361,79 @@ public final class Solution {
             String[] tokens = line.split(" ");
             // based on the list operation invoke the corresponding method
             switch (tokens[0]) {
-                case "size":
-                    System.out.println(s.size());
-                    break;
-                case "contains":
-                    System.out.println(s.contains(Integer.parseInt(tokens[1])));
-                    break;
+                case "add":
+                s.add(Integer.parseInt(tokens[1]));
+                break;
                 case "print":
-                    System.out.println(s);
-                    break;
+                System.out.println(s.toString());
+                break;
                 case "addAll":
-                    int[] intArray = intArray(tokens[1]);
-                    if (intArray.length == 1) {
-                        s.add(intArray[0]);
-                    } else {
-                        s.add(intArray);
-                    }
-                    break;
-                case "intersection":
-                    s = new SortedSet(MAGIC3);
-                    SortedSet t = new SortedSet(MAGIC3);
-                    intArray = intArray(tokens[1]);
-                    s.add(intArray);
-                    intArray = intArray(tokens[2]);
-                    t.add(intArray);
-                    System.out.println(s.intersection(t));
-                    break;
-                case "retainAll":
-                    s = new SortedSet(MAGIC3);
-                    intArray = intArray(tokens[1]);
-                    s.add(intArray);
-                    intArray = intArray(tokens[2]);
-                    System.out.println(s.retainAll(intArray));
-                    break;
-                case "cartesianProduct":
-                    s = new SortedSet(MAGIC3);
-                    t = new SortedSet(MAGIC3);
-                    intArray = intArray(tokens[1]);
-                    s.add(intArray);
-                    intArray = intArray(tokens[2]);
-                    t.add(intArray);
-                    if (s.size() == 0 || t.size() == 0) {
-                        System.out.println("null");
-                    } else {
-                        System.out.println(Arrays.deepToString(
-                            s.cartesianProduct(t)));
-                    }
-                    break;
+                String[] arr = tokens[1].split(",");
+                int[] arr1 = new int[arr.length];
+                for (int i = 0; i < arr.length; i++) {
+                    arr1[i] = Integer.parseInt(arr[i]);
+                }
+                s.addAll(arr1);
+                break;
                 case "last":
-                        try {
-                            System.out.println(s.last());  
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                        } 
-                        break;
+                try {
+                System.out.println(s.last());
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
                 case "subSet":
-                    int[] intArray1 = intArray(tokens[1]);
-                    try {
-                       System.out.println(s.subSet(intArray1[0], intArray1[1]));
-                    } catch (Exception e) {
-                        System.out.
-                            println(e.getMessage());
-                    }
+                try {
+                String[] token = tokens[1].split(",");
+                int[] res = s.subSet(Integer.parseInt(token[0]),
+                    Integer.parseInt(token[1]));
+                if (res.length == 0) {
+                    System.out.println("{}");
                     break;
+                } else {
+                String s1 = "{";
+                for (int i = 0; i < res.length - 1; i++) {
+                    s1 += res[i] + ", ";
+                }
+                s1 += res[res.length - 1] + "}";
+                System.out.println(s1);
+                }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
                 case "headSet":
-                    int[] intArray2 = intArray(tokens[1]);
-                    try {
-                       System.out.println(s.headSet(intArray2[0]));
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                    break;
+                try {
+                int[] res1 = s.headSet(Integer.parseInt(tokens[1]));
+                String s1 = "{";
+                for (int i = 0; i < res1.length - 1; i++) {
+                    s1 += res1[i] + ", ";
+                }
+                s1 += res1[res1.length - 1] + "}";
+                System.out.println(s1);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+                case "intersection":
+                // int[] intArray = intArray(tokens[1]);
+                s = new Sortedset();
+                Sortedset t = new Sortedset();
+                int[] intArray = intArray(tokens[1]);
+                s.addAll(intArray);
+                intArray = intArray(tokens[2]);
+                t.addAll(intArray);
+                System.out.println(s.intersection(t));
+                break;
+                case "retainAll":
+                s = new Sortedset();
+                intArray = intArray(tokens[1]);
+                s.addAll(intArray);
+                intArray = intArray(tokens[2]);
+                System.out.println(s.retainAll(intArray));
+                break;
                 default:
-                    break;
             }
         }
     }
 }
-
-
