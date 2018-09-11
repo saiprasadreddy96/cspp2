@@ -283,10 +283,13 @@ final class List {
      *
      * @return     { description_of_the_return_value }
      */
-    public List subList(final int start, final int end) {
+    public List subList(final int start, final int end) throws Exception {
     // write the logic for subList
         List object = new List(end - start);
         int j = 0;
+        if (start < 0 || end <= 0 || start >= end || size() > 0) {
+            throw new Exception("Index Out of Bounds Exception");
+        }
         if (start >= 0 && end > 0 && end > start) {
             for (int i = start; i < end; i++) {
                 object.list[j] = this.list[i];
@@ -435,18 +438,17 @@ public class Solution {
                     if (tokens.length != 2) {
                         break;
                     }
+                    try {
                     String[] arrstring3 = tokens[1].split(",");
                     int start = Integer.parseInt(arrstring3[0]);
                     int end = Integer.parseInt(arrstring3[1]);
-                    if (start >= 0 && end >= 0 && end > start) {
                         List object = l.subList(start, end);
                         if (object != null) {
                             System.out.println(object);
                         }
-                    } else {
-                        System.out.println("Index Out of Bounds Exception");
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
                     }
-
                 break;
                 case "equals":
                     if (tokens.length == 2) {
