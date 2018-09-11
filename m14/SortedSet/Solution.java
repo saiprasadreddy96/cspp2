@@ -268,8 +268,8 @@ class SortedSet extends Set {
      * @return     { description_of_the_return_value }
      */
     public Set subSet(final int fromelement, final int toelement) {
-        final int MAGIC2 = 10;
-        Set other = new  Set(MAGIC2);
+        final int MAGIC = 10;
+        Set other = new  Set(MAGIC);
         for (int i = this.getindex(fromelement); 
                 i < this.getindex(toelement); i++) {
             other.add(this.get(i));
