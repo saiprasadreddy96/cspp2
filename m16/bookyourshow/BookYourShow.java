@@ -21,7 +21,7 @@ class Show {
  	
 }
 class BookYourShow {
-	Show[] shows;
+	Show shows[] = new Show[10];
 	int size = 0;
 	static String[] bookedlist = new String[10];
 	static int bls = 0;
