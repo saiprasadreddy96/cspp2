@@ -147,8 +147,8 @@ class ShoppingCart {
     public void show() {
         for (int i = 0; i < size2; i++) {
             if (items2[i].getq() > 0) {
-                System.out.println
-                (items2[i].getprt() + " " + items2[i].getq());
+                System.out.println(
+                    items2[i].getprt() + " " + items2[i].getq());
             }
         }
     }
@@ -196,9 +196,12 @@ class ShoppingCart {
     /**.
      * { function_description }
      *
-     * @param      coupon  The coupon
+     * @param      coupon1  The coupon 1
      */
     public void setcoupon(final String coupon1) {
+        /**.
+         * { var_description }
+         */
         final int three = 3, five = 5;
         int n = Integer.parseInt(coupon1.substring(three, five));
         if (flag == 1) {
@@ -241,6 +244,7 @@ class ShoppingCart {
      * { function_description }
      */
     public void printall() {
+        final int hundred1 = 100, fifteen1 = 15;
         System.out.println("Name   quantity   Price");
         for (int i = 0; i < size1; i++) {
             for (int j = 0; j < size2; j++) {
@@ -253,9 +257,9 @@ class ShoppingCart {
             }
         }
         float ta = totalAmount();
-        float dis = ta * getcoupon() / 100;
+        float dis = ta * getcoupon() / hundred1;
         float pa = ta - dis;
-        float tax = pa * 15 / 100;
+        float tax = pa * fifteen1 / hundred1;
         pa = pa + tax;
         System.out.println("totalAmount: " + ta + "\nTotal:" + ta 
             + "\nDisc%:" + dis + "\nTax:" + tax + "\nPayable amount: " + pa);
