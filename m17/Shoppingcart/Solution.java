@@ -1,12 +1,21 @@
 import java.util.Scanner;
-import java.io.BufferedInputStream;
+//import java.io.BufferedInputStream;
 import java.util.Arrays;
 /**.
  * Class for item.
  */
 class Item {
-	private String prt;
+	/**.
+	 * { var_description }
+	 */
+    private String prt;
+    /**.
+     * { var_description }
+     */
 	private int q;
+	/**.
+	 * { var_description }
+	 */
 	private float up;
 	/**.
 	 * Constructs the object.
@@ -15,10 +24,10 @@ class Item {
 	 * @param      q     The quarter
 	 * @param      up    { parameter_description }
 	 */
-	public Item(final String prt, final int q, final float up) {
-		this.prt = prt;
-		this.q = q;
-		this.up = up;
+	public Item(final String prt1, final int q1, final float up1) {
+		this.prt = prt1;
+		this.q = q1;
+		this.up = up1;
 	}
 	/**.
 	 * { function_description }
@@ -81,14 +90,15 @@ class Item {
  * Class for shopping cartesian.
  */
 class ShoppingCart {
-	Item items1[], items2[];
-	int size1, size2, coupon, flag = 0;
+	private Item items1[], items2[];
+	private int size1, size2, coupon, flag = 0;
 	/**.
 	 * Constructs the object.
 	 */
 	public ShoppingCart() {
-		items1 = new Item[20];
-		items2 = new Item[20];
+		final int m1 = 20;
+		items1 = new Item[m1];
+		items2 = new Item[m1];
 		size1 = 0;
 		size2 = 0;
 		coupon = 0;
@@ -106,7 +116,9 @@ class ShoppingCart {
 	 */
 	public void catalog() {
 		for (int i = 0; i < size1; i++) {
-			System.out.println(items1[i].getprt() + " " + items1[i].getq() + " " + items1[i].getup());
+			System.out.println
+			(items1[i].getprt() + " " + items1[i].getq() + 
+				" " + items1[i].getup());
 		}
 	}
 	/**.
@@ -129,7 +141,8 @@ class ShoppingCart {
 	public void show() {
 		for (int i = 0; i < size2; i++) {
 			if (items2[i].getq() > 0) {
-				System.out.println(items2[i].getprt() + " " + items2[i].getq());
+				System.out.println
+				(items2[i].getprt() + " " + items2[i].getq());
 			}
 		}
 	}
@@ -140,7 +153,8 @@ class ShoppingCart {
 	 */
 	public void remove(final Item other) {
 		for (int i = 0; i < size2; i++) {
-			if (items2[i].getprt().equals(other.getprt()) && items2[i].getq() >= other.getq()) {
+			if (items2[i].getprt().equals(other.getprt()) && 
+				items2[i].getq() >= other.getq()) {
 				items2[i].setq(items2[i].getq() - other.getq());
 				return;
 			}
@@ -183,7 +197,8 @@ class ShoppingCart {
 		if (flag == 1) {
 			return;
 		}
-		if (n == 10 || n == 20 || n == 30 || n == 50) {
+		final int m3 = 10, m4 = 20, m5 = 30, m6 = 50;
+		if (n == m3 || n == m4 || n == m5 || n == m6) {
 			this.coupon = n;
 			flag = 1;
 		} else {
@@ -221,8 +236,10 @@ class ShoppingCart {
 		System.out.println("Name   quantity   Price");
 		for (int i = 0; i < size1; i++) {
 			for (int j = 0; j < size2; j++) {
-				if (items1[i].getprt().equals(items2[j].getprt()) && items2[j].getq() != 0){
-					System.out.println(items1[i].getprt() + " " + items2[j].getq() + " " + items1[i].getup());
+				if (items1[i].getprt().equals(items2[j].getprt()) && 
+					items2[j].getq() != 0){
+					System.out.println(items1[i].getprt() + " " + 
+						items2[j].getq() + " " + items1[i].getup());
 					break;
 				}
 			}
@@ -232,7 +249,8 @@ class ShoppingCart {
 		float pa = ta - dis;
 		float tax = pa * 15 / 100;
 		pa = pa + tax;
-		System.out.println("totalAmount: "+ta+"\nTotal:"+ta+"\nDisc%:"+dis+"\nTax:"+tax+"\nPayable amount: "+pa);
+		System.out.println("totalAmount: "+ta+"\nTotal:"+ta+
+			"\nDisc%:"+dis+"\nTax:"+tax+"\nPayable amount: "+pa);
 		return;
 	}
 
@@ -256,27 +274,31 @@ public final class Solution {
 			switch (tokens1[0]) {
 				case "Item":
 					String[] tokens2 = tokens1[1].split(",");
-					sct.item(new Item(tokens2[0], Integer.parseInt(tokens2[1]), Float.parseFloat(tokens2[2])));
+					sct.item(new Item(tokens2[0], 
+						Integer.parseInt(tokens2[1]), 
+						Float.parseFloat(tokens2[2])));
 					break;
 				case "catalog":
 					sct.catalog();
 					break;
 				case "add":
 					String[] tokens3 = tokens1[1].split(",");
-					sct.add(new Item(tokens3[0], Integer.parseInt(tokens3[1]), 0.0f));
+					sct.add(new Item(tokens3[0], 
+						Integer.parseInt(tokens3[1]), 0.0f));
 					break;
 				case "show":
 					sct.show();
 					break;
 				case "totalAmount":
-					System.out.println("totalAmount: "+sct.totalAmount());
+					System.out.println("totalAmount: "+ sct.totalAmount());
 					break;
 				case "remove":
 					String[] tokens4 = tokens1[1].split(",");
-					sct.remove(new Item(tokens4[0], Integer.parseInt(tokens4[1]), 0.0f));
+					sct.remove(new Item(tokens4[0], 
+						Integer.parseInt(tokens4[1]), 0.0f));
 					break;
 				case "payableAmount":
-					System.out.println("Payable amount: "+sct.payableAmount());
+					System.out.println("Payable amount: "+ sct.payableAmount());
 					break;
 				case "print":
 					sct.printall();
