@@ -104,7 +104,7 @@ class ShoppingCart {
 		System.out.println("Name   quantity   Price");
 		for (int i = 0; i < size1; i++) {
 			for (int j = 0; j < size2; j++) {
-				if (items1[i].getprt() == items2[j].getprt()) {
+				if (items1[i].getprt().equals(items2[j].getprt())){
 					System.out.println(items1[i].getprt() + " " + items2[j].getq() + " " + items1[i].getup());
 					break;
 				}
