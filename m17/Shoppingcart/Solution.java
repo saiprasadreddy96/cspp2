@@ -291,9 +291,9 @@ public final class Solution {
             switch (tokens1[0]) {
                 case "Item":
                     String[] tokens2 = tokens1[1].split(",");
-                    sct.item(new Item(tokens2[0], 
-                        Integer.parseInt(tokens2[1]), 
-                        Float.parseFloat(tokens2[2])));
+                    sct.item(new Item(tokens2[0],
+                    Integer.parseInt(tokens2[1]),
+                    Float.parseFloat(tokens2[2])));
                     break;
                 case "catalog":
                     sct.catalog();
