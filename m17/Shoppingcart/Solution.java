@@ -91,7 +91,7 @@ class ShoppingCart {
 		} else {
 			this.coupon = 0;
 		}
-		System.out.println(coupon);
+		System.out.println(this.coupon);
 	}
 	public int getcoupon() {
 		return this.coupon;
