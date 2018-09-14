@@ -20,9 +20,9 @@ class Item {
     /**.
      * Constructs the object.
      *
-     * @param      prt   The prt
-     * @param      q     The quarter
-     * @param      up    { parameter_description }
+     * @param      prt1  The prt 1
+     * @param      q1    The quarter 1
+     * @param      up1   The up 1
      */
     public Item(final String prt1, final int q1, final float up1) {
         this.prt = prt1;
@@ -56,26 +56,26 @@ class Item {
     /**.
      * { function_description }
      *
-     * @param      prt   The prt
+     * @param      prt1   The prt
      */
-    public void setprt(final String prt) {
-        this.prt = prt;
+    public void setprt(final String prt1) {
+        this.prt = prt1;
     }
     /**.
      * { function_description }
      *
-     * @param      q     The quarter
+     * @param      q1    The quarter
      */
-    public void setq(final int q) {
-        this.q = q;
+    public void setq(final int q1) {
+        this.q = q1;
     }
     /**.
      * { function_description }
      *
-     * @param      up    { parameter_description }
+     * @param      up1    { parameter_description }
      */
-    public void setup(final float up) {
-        this.up = up;
+    public void setup(final float up1) {
+        this.up = up1;
     }
     /**.
      * Returns a string representation of the object.
@@ -90,7 +90,7 @@ class Item {
  * Class for shopping cartesian.
  */
 class ShoppingCart {
-    private Item items1[], items2[];
+    private Item[] items1, items2;
     private int size1, size2, coupon, flag = 0;
     /**.
      * Constructs the object.
