@@ -249,8 +249,8 @@ class ShoppingCart {
 		float pa = ta - dis;
 		float tax = pa * 15 / 100;
 		pa = pa + tax;
-		System.out.println("totalAmount: "+ta+"\nTotal:"+ta+
-			"\nDisc%:"+dis+"\nTax:"+tax+"\nPayable amount: "+pa);
+		System.out.println("totalAmount: " + ta + "\nTotal:" + ta +
+			"\nDisc%:" + dis + "\nTax:" + tax + "\nPayable amount: " + pa);
 		return;
 	}
 
@@ -290,7 +290,7 @@ public final class Solution {
 					sct.show();
 					break;
 				case "totalAmount":
-					System.out.println("totalAmount: "+ sct.totalAmount());
+					System.out.println("totalAmount: " + sct.totalAmount());
 					break;
 				case "remove":
 					String[] tokens4 = tokens1[1].split(",");
@@ -298,7 +298,7 @@ public final class Solution {
 						Integer.parseInt(tokens4[1]), 0.0f));
 					break;
 				case "payableAmount":
-					System.out.println("Payable amount: "+ sct.payableAmount());
+					System.out.println("Payable amount: " + sct.payableAmount());
 					break;
 				case "print":
 					sct.printall();
