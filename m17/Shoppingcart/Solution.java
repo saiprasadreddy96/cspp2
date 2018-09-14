@@ -85,13 +85,13 @@ class ShoppingCart {
 	}
 	public void setcoupon(String coupon) {
 		int n = Integer.parseInt(coupon.substring(3, 5));
-		//System.out.println(n);
+		System.out.println(n);
 		if (n == 10 || n == 20 || n == 30 || n == 50) {
 			this.coupon = n;
 		} else {
 			this.coupon = 0;
 		}
-		//System.out.println(coupon);
+		System.out.println(coupon);
 	}
 	public int getcoupon() {
 		return this.coupon;
