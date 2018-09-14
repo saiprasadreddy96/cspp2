@@ -299,8 +299,8 @@ public final class Solution {
 						Integer.parseInt(tokens4[1]), 0.0f));
 					break;
 				case "payableAmount":
-					System.out.println("Payable amount: " + 
-						sct.payableAmount());
+			        System.out.println("Payable amount: " 
+						+ sct.payableAmount());
 					break;
 				case "print":
 					sct.printall();
