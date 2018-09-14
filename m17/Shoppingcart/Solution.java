@@ -87,7 +87,7 @@ class ShoppingCart {
 		int n = Integer.parseInt(coupon.substring(3, coupon.length()));
 		//System.out.println(n);
 		if (n == 10 || n == 20 || n == 30 || n == 50) {
-			this.coupon = n;
+			this.coupon = this.coupon + n;
 		}
 		//System.out.println(coupon);
 	}
