@@ -1,40 +1,91 @@
 import java.util.Scanner;
 import java.io.BufferedInputStream;
 import java.util.Arrays;
+/**.
+ * Class for item.
+ */
 class Item {
 	private String prt;
 	private int q;
 	private float up;
-	public Item(String prt, int q, float up) {
+	/**.
+	 * Constructs the object.
+	 *
+	 * @param      prt   The prt
+	 * @param      q     The quarter
+	 * @param      up    { parameter_description }
+	 */
+	public Item(final String prt, final int q, final float up) {
 		this.prt = prt;
 		this.q = q;
 		this.up = up;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public String getprt() {
 		return prt;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public int getq() {
 		return q;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public float getup() {
 		return up;
 	}
-	public void setprt(String prt) {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      prt   The prt
+	 */
+	public void setprt(final String prt) {
 		this.prt = prt;
 	}
-	public void setq(int q) {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      q     The quarter
+	 */
+	public void setq(final int q) {
 		this.q = q;
 	}
-	public void setup(float up) {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      up    { parameter_description }
+	 */
+	public void setup(final float up) {
 		this.up = up;
 	}
+	/**.
+	 * Returns a string representation of the object.
+	 *
+	 * @return     String representation of the object.
+	 */
 	public String toString() {
 		return prt + " " + q + " " + up;
 	}
 }
+/**.
+ * Class for shopping cartesian.
+ */
 class ShoppingCart {
 	Item items1[], items2[];
 	int size1, size2, coupon, flag = 0;
+	/**.
+	 * Constructs the object.
+	 */
 	public ShoppingCart() {
 		items1 = new Item[20];
 		items2 = new Item[20];
@@ -42,15 +93,28 @@ class ShoppingCart {
 		size2 = 0;
 		coupon = 0;
 	}
-	public void item(Item other) {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      other  The other
+	 */
+	public void item(final Item other) {
 		items1[size1++] =  other;
 	}
+	/**.
+	 * { function_description }
+	 */
 	public void catalog() {
 		for (int i = 0; i < size1; i++) {
 			System.out.println(items1[i].getprt() + " " + items1[i].getq() + " " + items1[i].getup());
 		}
 	}
-	public void add(Item other) {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      other  The other
+	 */
+	public void add(final Item other) {
 		for (int i = 0; i < size2; i++) {
 			if (items2[i].getprt().equals(other.getprt())) {
 				items2[i].setq(items2[i].getq() + other.getq());
@@ -59,6 +123,9 @@ class ShoppingCart {
 		}
 		items2[size2++] = other;
 	}
+	/**.
+	 * { function_description }
+	 */
 	public void show() {
 		for (int i = 0; i < size2; i++) {
 			if (items2[i].getq() > 0) {
@@ -66,7 +133,12 @@ class ShoppingCart {
 			}
 		}
 	}
-	public void remove(Item other) {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      other  The other
+	 */
+	public void remove(final Item other) {
 		for (int i = 0; i < size2; i++) {
 			if (items2[i].getprt().equals(other.getprt()) && items2[i].getq() >= other.getq()) {
 				items2[i].setq(items2[i].getq() - other.getq());
@@ -74,7 +146,14 @@ class ShoppingCart {
 			}
 		}
 	}
-	public float getup(String prt) {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      prt   The prt
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
+	public float getup(final String prt) {
 		for (int i = 0; i < size1; i++) {
 			if (items1[i].getprt().equals(prt)) {
 				return items1[i].getup();
@@ -82,6 +161,11 @@ class ShoppingCart {
 		}
 		return 0;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public float totalAmount() {
 		float amount = 0;
 		for (int i = 0; i < size2; i++) {
@@ -89,7 +173,12 @@ class ShoppingCart {
 		}
 		return amount;
 	}
-	public void setcoupon(String coupon) {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      coupon  The coupon
+	 */
+	public void setcoupon(final String coupon) {
 		int n = Integer.parseInt(coupon.substring(3, 5));
 		if (flag == 1) {
 			return;
@@ -102,9 +191,19 @@ class ShoppingCart {
 			this.coupon = 0;
 		}
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public int getcoupon() {
 		return this.coupon;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public float payableAmount() {
 		float ta = totalAmount();
 		System.out.println(getcoupon());
@@ -115,6 +214,9 @@ class ShoppingCart {
 		pa = pa + tax;
 		return pa;
 	}
+	/**.
+	 * { function_description }
+	 */
 	public void printall() {
 		System.out.println("Name   quantity   Price");
 		for (int i = 0; i < size1; i++) {
@@ -125,24 +227,25 @@ class ShoppingCart {
 				}
 			}
 		}
-		
 		float ta = totalAmount();
 		float dis = ta * getcoupon() / 100;
 		float pa = ta - dis;
 		float tax = pa * 15 / 100;
 		pa = pa + tax;
 		System.out.println("totalAmount: "+ta+"\nTotal:"+ta+"\nDisc%:"+dis+"\nTax:"+tax+"\nPayable amount: "+pa);
-
-		
 		return;
 	}
 
 }
-
-
-
-
+/**.
+ * { item_description }
+ */
 public final class Solution {
+	/**.
+	 * { function_description }
+	 *
+	 * @param      args  The arguments
+	 */
 	public static void main(final String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
@@ -184,14 +287,7 @@ public final class Solution {
 				default:
 					break;
 			}
-
-
-
-
-
 			n--;
 		}
-
-		
 	}
 }
