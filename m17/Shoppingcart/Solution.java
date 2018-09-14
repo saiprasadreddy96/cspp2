@@ -87,12 +87,14 @@ class ShoppingCart {
 		int n = Integer.parseInt(coupon.substring(3, coupon.length()));
 		//System.out.println(n);
 		if (n == 10 || n == 20 || n == 30 || n == 50) {
-			this.coupon = this.coupon + n;
+			this.coupon = n;
+		} else {
+			this.coupon = 0;
 		}
 		//System.out.println(coupon);
 	}
 	public int getcoupon() {
-		return coupon;
+		return this.coupon;
 	}
 	public float payableAmount() {
 		float ta = totalAmount();
