@@ -97,11 +97,11 @@ class ShoppingCart {
 		return this.coupon;
 	}
 	public float payableAmount() {
-		float ta = totalAmount();
-		System.out.println(getcoupon());
-		float dis = ta * getcoupon() / 100;
-		System.out.println(dis);
-		float pa = ta - dis;
+		float pa = totalAmount();
+		//System.out.println(getcoupon());
+		//float dis = ta * getcoupon() / 100;
+		//System.out.println(dis);
+		//float pa = ta - dis;
 		float tax = pa * 15 / 100;
 		pa = pa + tax;
 		return pa;
