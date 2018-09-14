@@ -98,13 +98,15 @@ class ShoppingCart {
 		float ta = totalAmount();
 		float dis = ta * getcoupon() / 100;
 		float pa = ta - dis;
-		return pa + (pa * 15 / 100);
+		float tax = pa * 15 / 100;
+		pa = pa + tax;
+		return pa;
 	}
 	public void printall() {
 		System.out.println("Name   quantity   Price");
 		for (int i = 0; i < size1; i++) {
 			for (int j = 0; j < size2; j++) {
-				if (items1[i].getprt().equals(items2[j].getprt())){
+				if (items1[i].getprt().equals(items2[j].getprt()) && items2[j].getq() != 0){
 					System.out.println(items1[i].getprt() + " " + items2[j].getq() + " " + items1[i].getup());
 					break;
 				}
