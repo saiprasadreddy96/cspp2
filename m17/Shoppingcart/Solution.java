@@ -1,12 +1,12 @@
 import java.util.Scanner;
 //import java.io.BufferedInputStream;
-import java.util.Arrays;
+//import java.util.Arrays;
 /**.
  * Class for item.
  */
 class Item {
     /**.
-     * { var_description }
+     *  @param      prt
      */
     private String prt;
     /**.
