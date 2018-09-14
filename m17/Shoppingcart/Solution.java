@@ -114,7 +114,7 @@ public final class Solution {
 			String tokens = sc.nextLine();
 			String[] tokens1 = tokens.split(" ");
 			switch (tokens1[0]) {
-				case "item":
+				case "Item":
 					String[] tokens2 = tokens1[1].split(",");
 					sct.item(new Item(tokens2[0], Integer.parseInt(tokens2[1]), Float.parseFloat(tokens2[2])));
 					break;
