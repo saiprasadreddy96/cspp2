@@ -122,8 +122,8 @@ class ShoppingCart {
      */
     public void catalog() {
         for (int i = 0; i < size1; i++) {
-            System.out.println
-            (items1[i].getprt() + " " + items1[i].getq()
+            System.out.println(
+                items1[i].getprt() + " " + items1[i].getq()
              +  " " + items1[i].getup());
         }
     }
@@ -228,10 +228,10 @@ class ShoppingCart {
      */
     public float payableAmount() {
         float ta = totalAmount();
-        System.out.println(getcoupon());
+        //System.out.println(getcoupon());
         final int fifteen = 15, hundred = 100;
         float dis = ta * getcoupon() / hundred;
-        System.out.println(dis);
+        //System.out.println(dis);
         float pa = ta - dis;
         float tax = pa * fifteen / hundred;
         pa = pa + tax;
