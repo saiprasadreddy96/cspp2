@@ -122,7 +122,7 @@ public final class Solution {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		ShoppingCart sct = new ShoppingCart();
-		while (n > 0) {
+		while (n >= 0) {
 			String tokens = sc.nextLine();
 			String[] tokens1 = tokens.split(" ");
 			switch (tokens1[0]) {
