@@ -47,7 +47,7 @@ class ShoppingCart {
 	}
 	public void catalog() {
 		for (int i = 0; i < size1; i++) {
-			System.out.println(items1[1]);
+			System.out.println(items1[i]);
 		}
 	}
 	public void add(Item other) {
