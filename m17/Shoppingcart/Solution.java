@@ -84,7 +84,7 @@ class ShoppingCart {
 		return amount;
 	}
 	public void setcoupon(String coupon) {
-		int n = Integer.parseInt(coupon.substring(3, coupon.length()));
+		int n = Integer.parseInt(coupon.substring(3, 5));
 		//System.out.println(n);
 		if (n == 10 || n == 20 || n == 30 || n == 50) {
 			this.coupon = n;
