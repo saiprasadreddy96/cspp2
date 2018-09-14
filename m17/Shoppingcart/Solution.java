@@ -24,7 +24,7 @@ class Item {
      * @param      q1    The quarter 1
      * @param      up1   The up 1
      */
-    public Item(final String prt1, final int q1, final float up1) {
+    protected Item(final String prt1, final int q1, final float up1) {
         this.prt = prt1;
         this.q = q1;
         this.up = up1;
@@ -90,12 +90,18 @@ class Item {
  * Class for shopping cartesian.
  */
 class ShoppingCart {
+    /**.
+     * { item_description }
+     */
     private Item[] items1, items2;
+    /**.
+     * { item_description }
+     */
     private int size1, size2, coupon, flag = 0;
     /**.
      * Constructs the object.
      */
-    public ShoppingCart() {
+    protected ShoppingCart() {
         final int m1 = 20;
         items1 = new Item[m1];
         items2 = new Item[m1];
@@ -192,8 +198,9 @@ class ShoppingCart {
      *
      * @param      coupon  The coupon
      */
-    public void setcoupon(final String coupon) {
-        int n = Integer.parseInt(coupon.substring(3, 5));
+    public void setcoupon(final String coupon1) {
+        final int three = 3, five = 5;
+        int n = Integer.parseInt(coupon1.substring(three, five));
         if (flag == 1) {
             return;
         }
