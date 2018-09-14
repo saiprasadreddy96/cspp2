@@ -91,9 +91,7 @@ class ShoppingCart {
 	}
 	public void setcoupon(String coupon) {
 		int n = Integer.parseInt(coupon.substring(3, 5));
-		//System.out.println(n);
 		if (flag == 1) {
-			//this.coupon = 0;
 			return;
 		}
 		if (n == 10 || n == 20 || n == 30 || n == 50) {
@@ -103,17 +101,16 @@ class ShoppingCart {
 			System.out.println("Invalid coupon");
 			this.coupon = 0;
 		}
-		//System.out.println(this.coupon);
 	}
 	public int getcoupon() {
 		return this.coupon;
 	}
 	public float payableAmount() {
-		float ta = totalAmount();
+		float pa = totalAmount();
 		//System.out.println(getcoupon());
-		float dis = ta * getcoupon() / 100;
+		//float dis = ta * getcoupon() / 100;
 		//System.out.println(dis);
-		float pa = ta - dis;
+		//float pa = ta - dis;
 		float tax = pa * 15 / 100;
 		pa = pa + tax;
 		return pa;
