@@ -34,7 +34,7 @@ class Item {
 }
 class ShoppingCart {
 	Item items1[], items2[];
-	int size1, size2, coupon;
+	int size1, size2, coupon, flag = 0;
 	public ShoppingCart() {
 		items1 = new Item[20];
 		items2 = new Item[20];
@@ -51,6 +51,12 @@ class ShoppingCart {
 		}
 	}
 	public void add(Item other) {
+		for (int i = 0; i < size2; i++) {
+			if (items2[i].getprt().equals(other.getprt())) {
+				items2[i].setq(items2[i].getq() + other.getq());
+				return;
+			}
+		}
 		items2[size2++] = other;
 	}
 	public void show() {
@@ -86,8 +92,13 @@ class ShoppingCart {
 	public void setcoupon(String coupon) {
 		int n = Integer.parseInt(coupon.substring(3, 5));
 		//System.out.println(n);
+		if (flag == 1) {
+			//this.coupon = 0;
+			return;
+		}
 		if (n == 10 || n == 20 || n == 30 || n == 50) {
 			this.coupon = n;
+			flag = 1;
 		} else {
 			System.out.println("Invalid coupon");
 			this.coupon = 0;
