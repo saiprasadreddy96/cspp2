@@ -55,7 +55,9 @@ class ShoppingCart {
 	}
 	public void show() {
 		for (int i = 0; i < size2; i++) {
-			System.out.println(items2[i].getprt() + " " + items2[i].getq());
+			if (items2[i].getq() > 0) {
+				System.out.println(items2[i].getprt() + " " + items2[i].getq());
+			}
 		}
 	}
 	public void remove(Item other) {
@@ -97,6 +99,16 @@ class ShoppingCart {
 		return pa + (pa * 15 / 100);
 	}
 	public void print() {
+		System.out.println("Name   quantity   Price");
+		show();
+		float ta = totalAmount();
+		float dis = ta * getcoupon() / 100;
+		float pa = ta - dis;
+		float tax = pa * 15 / 100;
+		pa = pa + tax;
+		System.out.println("totalAmount: "+ta+"\nTotal:"+ta+"\nDisc%:"+dis+"\nTax:"+tax+"\nPayable amount: "+pa);
+
+		
 		return;
 	}
 
