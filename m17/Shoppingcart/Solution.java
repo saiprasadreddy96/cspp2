@@ -98,7 +98,7 @@ class ShoppingCart {
 		float pa = ta - dis;
 		return pa + (pa * 15 / 100);
 	}
-	public void print() {
+	public void printall() {
 		System.out.println("Name   quantity   Price");
 		show();
 		float ta = totalAmount();
@@ -151,7 +151,7 @@ public final class Solution {
 					System.out.println("Payable amount: "+sct.payableAmount());
 					break;
 				case "print":
-					sct.print();
+					sct.printall();
 					break;
 				case "coupon":
 					sct.setcoupon(tokens1[1]);
