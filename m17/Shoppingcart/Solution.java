@@ -98,7 +98,7 @@ class ShoppingCart {
 		float ta = totalAmount();
 		float dis = ta * getcoupon() / 100;
 		float pa = ta - dis;
-		return pa + (ta * 15 / 100);
+		return pa + (pa * 15 / 100);
 	}
 	public void printall() {
 		System.out.println("Name   quantity   Price");
@@ -106,7 +106,7 @@ class ShoppingCart {
 		float ta = totalAmount();
 		float dis = ta * getcoupon() / 100;
 		float pa = ta - dis;
-		float tax = ta * 0.15f;
+		float tax = pa * 15 / 100;
 		pa = pa + tax;
 		System.out.println("totalAmount: "+ta+"\nTotal:"+ta+"\nDisc%:"+dis+"\nTax:"+tax+"\nPayable amount: "+pa);
 
