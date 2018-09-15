@@ -192,7 +192,7 @@ public final class Solution {
         // write your code here to display the score report
         int score = 0;
         for (int i = 0; i < size; i++) {
-        	//System.out.println(q[i].getqt());
+        	System.out.println(q[i].getqt());
         	String string1 = "abcd";
         	String[] string2 = q[i].getuc().split(" ");
         	String num = (string2[1]);
