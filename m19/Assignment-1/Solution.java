@@ -200,10 +200,12 @@ public final class Solution {
         	//int num1 = Integer.parseInt(string2[1]);
         	if (num == "1" || num == "2" || num == "3" || num == "4") {
         		num1 = Integer.parseInt(string2[1]);
+        		System.out.println("in if");
         	}
         	else {
         		
         		num1 = string1.indexOf(num) + 1;
+        		System.out.println("in else");
         	}
         	System.out.println(num1);
         	if (num1 == q[i].getcc()) {
