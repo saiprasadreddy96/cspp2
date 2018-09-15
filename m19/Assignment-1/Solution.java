@@ -170,7 +170,7 @@ public final class Solution {
 
         }
         for (int i = 0; i < size; i++) {
-        	System.out.println(q[i].getqt() + (i + 1) + "(" + q[i].getmm() + ")");
+        	System.out.println(q[i].getqt()  + "(" + q[i].getmm() + ")");
         	int j = 0;
         	for (j = 0; j < q[i].getnc() - 1; j++) {
         		System.out.print("choice " + (j + 1) + "\t");
@@ -189,7 +189,7 @@ public final class Solution {
         // write your code here to display the score report
         int score = 0;
         for (int i = 0; i < size; i++) {
-        	System.out.println(q[i].getqt() + (i + 1));
+        	System.out.println(q[i].getqt());
         	if (q[i].getcc() == q[i].getuc()) {
         		System.out.println(" Correct Answer! - Marks Awarded: " + q[i].getmm());
         		score += q[i].getmm();
