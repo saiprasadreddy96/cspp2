@@ -1,22 +1,23 @@
 import java.util.Scanner;
 class Quiz {
-	private int nc, mm, p, cc, uc;
-	String qt;
-	public Quiz(final String qt1, final int nc1, final int cc1, final int mm1, final int p1) {
+	private int mm, p, cc;
+	String qt, uc;
+    String nc[];
+	public Quiz(final String qt1, final String nc1[], final int cc1, final int mm1, final int p1) {
 		this.qt = qt1;
 		this.nc = nc1;
 		this.cc = cc1;
 		this.mm = mm1;
 		this.p = p1;
-		this.uc = 0;
+		this.uc = null;
 	}
-	public void setuc(final int uc1) {
+	public void setuc(final String uc1) {
 		this.uc = uc1;
 	}
-	public int getnc() {
+	public String[] getnc() {
 		return this.nc;
 	}
-	public int getuc() {
+	public String getuc() {
 		return this.uc;
 	}
 	public int getcc() {
@@ -106,7 +107,7 @@ public final class Solution {
                 			System.out.println("Invalid penalty for " + parts[0]);
                 			break;
                 		}
-                		Quiz q1 = new Quiz(parts[0], len, Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+                		Quiz q1 = new Quiz(parts[0], choice, Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
                 		sol.loadQuestions(q1);
 
                 	}
@@ -165,17 +166,19 @@ public final class Solution {
         // read the user responses from the console
         // store the user respones in the quiz object
         for (int i = 0; i < answerCount; i++) {
-        	String[] line = s.nextLine().split(" ");
-        	q[i].setuc(Integer.parseInt(line[1]));
+        	String line = s.nextLine();
+        	q[i].setuc(line);
 
         }
         for (int i = 0; i < size; i++) {
         	System.out.println(q[i].getqt()  + "(" + q[i].getmm() + ")");
         	int j = 0;
-        	for (j = 0; j < q[i].getnc() - 1; j++) {
-        		System.out.print("choice " + (j + 1) + "\t");
+            String[] str1 = q[i].getnc();
+            int l = str1.length;
+        	for (j = 0; j < l - 1; j++) {
+        		System.out.print(str1[j] + "\t");
         	}
-        	System.out.println("choice " + (j + 1));
+        	System.out.println(str1[j]);
         	System.out.println();
         }
     }
@@ -189,8 +192,20 @@ public final class Solution {
         // write your code here to display the score report
         int score = 0;
         for (int i = 0; i < size; i++) {
-        	System.out.println(q[i].getqt());
-        	if (q[i].getcc() == q[i].getuc()) {
+        	//System.out.println(q[i].getqt());
+        	String string1 = "abcd";
+        	String[] string2 = q[i].getuc().split(" ");
+        	String num = (string2[1]);
+        	int num1;
+        	//int num1 = Integer.parseInt(string2[1]);
+        	if (num == "1" || num == "2" || num == "3" || num == "4") {
+        		num1 = Integer.parseInt(string2[1]);
+        	}
+        	else {
+        		
+        		num1 = string1.indexOf(num) + 1;
+        	}
+        	if (num1 == q[i].getcc()) {
         		System.out.println(" Correct Answer! - Marks Awarded: " + q[i].getmm());
         		score += q[i].getmm();
         	} else {
