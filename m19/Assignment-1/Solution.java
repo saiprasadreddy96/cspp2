@@ -194,7 +194,7 @@ public final class Solution {
         for (int i = 0; i < size; i++) {
         	System.out.println(q[i].getqt());
         	//String string1 = "abcd";
-        	String[] string2 = q[i].getuc().split(" ");
+        	String[] string2 = q[i].getnc();
         	// String num = (string2[1]);
         	// //System.out.println(num);
         	// int num1;
@@ -210,7 +210,7 @@ public final class Solution {
         	// }
         	// //System.out.println(num1);
         	String string3 = string2[q[i].getcc() - 1];
-        	if (string3.equals(q[i].getcc())) {
+        	if (string3.equals(q[i].getuc())) {
         		System.out.println(" Correct Answer! - Marks Awarded: " + q[i].getmm());
         		score += q[i].getmm();
         	} else {
