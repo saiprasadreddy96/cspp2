@@ -98,7 +98,9 @@ public final class Solution {
                 		sol.loadQuestions(q1);
 
                 	}
-                	System.out.println(n + " are added to the quiz");
+                	if (n != 0) {
+                		System.out.println(n + " are added to the quiz");
+                	}
             	} else {
             		System.out.println("Quiz does not have questions");
             	}
