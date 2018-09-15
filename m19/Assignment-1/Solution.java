@@ -193,23 +193,24 @@ public final class Solution {
         int score = 0;
         for (int i = 0; i < size; i++) {
         	System.out.println(q[i].getqt());
-        	String string1 = "abcd";
+        	//String string1 = "abcd";
         	String[] string2 = q[i].getuc().split(" ");
-        	String num = (string2[1]);
-        	//System.out.println(num);
-        	int num1;
-        	//int num1 = Integer.parseInt(string2[1]);
-        	if (num.equals("1") || num.equals("2") || num.equals("3") || num.equals("4")) {
-        		num1 = Integer.parseInt(string2[1]);
-        		//System.out.println("in if");
-        	}
-        	else {
+        	// String num = (string2[1]);
+        	// //System.out.println(num);
+        	// int num1;
+        	// //int num1 = Integer.parseInt(string2[1]);
+        	// if (num.equals("1") || num.equals("2") || num.equals("3") || num.equals("4")) {
+        	// 	num1 = Integer.parseInt(string2[1]);
+        	// 	//System.out.println("in if");
+        	// }
+        	// else {
         		
-        		num1 = string1.indexOf(num) + 1;
-        		//System.out.println("in else");
-        	}
-        	//System.out.println(num1);
-        	if (num1 == q[i].getcc()) {
+        	// 	num1 = string1.indexOf(num) + 1;
+        	// 	//System.out.println("in else");
+        	// }
+        	// //System.out.println(num1);
+        	String string3 = string2[q[i].getcc() - 1];
+        	if (string3.equals(q[i].getcc())) {
         		System.out.println(" Correct Answer! - Marks Awarded: " + q[i].getmm());
         		score += q[i].getmm();
         	} else {
