@@ -88,7 +88,7 @@ public final class Solution {
                 		}
                 		if (Integer.parseInt(parts[2]) > len) {
                 			n = 0;
-                			System.out.println("Error! Correct answer choice number is out of range " + parts[0]);
+                			System.out.println("Error! Correct answer choice number is out of range for " + parts[0]);
                 			break;
                 		}
                 		if (Integer.parseInt(parts[3]) <= 0) {
