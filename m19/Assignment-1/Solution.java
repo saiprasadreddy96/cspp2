@@ -89,7 +89,7 @@ public final class Solution {
                 			System.out.println("Invalid max marks for " + parts[0]);
                 			break;
                 		}
-                		if (Integer.parseInt(parts[4]) < 0) {
+                		if (Integer.parseInt(parts[4]) > 0) {
                 			n = 0;
                 			System.out.println("Invalid penalty " + parts[0]);
                 			break;
