@@ -72,7 +72,7 @@ public final class Solution {
                 	for (int i = 0; i < n; i++) {
                 		String question = s.nextLine();
                 		String[] parts = question.split(":");
-                		if (parts.length < 5) {
+                		if (parts.length < 5 || parts[0] == null) {
                 			n = 0;
                 			System.out.println("Error! Malformed question");
                 			break;
@@ -81,7 +81,12 @@ public final class Solution {
                 		int len = choice.length;
                 		if (len <= 1) {
                 			n = 0;
-                			System.out.println(parts[0] + "does not have enough answer choices");
+                			System.out.println(parts[0] + " does not have enough answer choices");
+                			break;
+                		}
+                		if (Integer.parseInt(parts[2]) > len) {
+                			n = 0;
+                			System.out.println("Error! Correct answer choice number is out of range " + parts[0]);
                 			break;
                 		}
                 		if (Integer.parseInt(parts[3]) <= 0) {
@@ -91,7 +96,7 @@ public final class Solution {
                 		}
                 		if (Integer.parseInt(parts[4]) > 0) {
                 			n = 0;
-                			System.out.println("Invalid penalty " + parts[0]);
+                			System.out.println("Invalid penalty for " + parts[0]);
                 			break;
                 		}
                 		Quiz q1 = new Quiz(i + 1, len, Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
