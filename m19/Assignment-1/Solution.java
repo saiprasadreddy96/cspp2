@@ -1,7 +1,8 @@
 import java.util.Scanner;
 class Quiz {
-	private int qt, nc, mm, p, cc, uc;
-	public Quiz(final int qt1, final int nc1, final int cc1, final int mm1, final int p1) {
+	private int nc, mm, p, cc, uc;
+	String qt;
+	public Quiz(final String qt1, final int nc1, final int cc1, final int mm1, final int p1) {
 		this.qt = qt1;
 		this.nc = nc1;
 		this.cc = cc1;
@@ -27,6 +28,10 @@ class Quiz {
 	public int getp() {
 		return this.p;
 	}
+ 	public String getqt() {
+ 		return this.qt;
+ 	}
+
  }
 /**
  * Solution class for code-eval.
@@ -101,7 +106,7 @@ public final class Solution {
                 			System.out.println("Invalid penalty for " + parts[0]);
                 			break;
                 		}
-                		Quiz q1 = new Quiz(i + 1, len, Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+                		Quiz q1 = new Quiz(parts[0], len, Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
                 		sol.loadQuestions(q1);
 
                 	}
@@ -165,7 +170,7 @@ public final class Solution {
 
         }
         for (int i = 0; i < size; i++) {
-        	System.out.println("question text " + (i + 1) + "(" + q[i].getmm() + ")");
+        	System.out.println(q[i].getqt() + (i + 1) + "(" + q[i].getmm() + ")");
         	int j = 0;
         	for (j = 0; j < q[i].getnc() - 1; j++) {
         		System.out.print("choice " + (j + 1) + "\t");
