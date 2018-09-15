@@ -125,12 +125,12 @@ public final class Solution {
 
         }
         for (int i = 0; i < size; i++) {
-        	System.out.println("question text " + "(" + q[i].getmm() + ")");
+        	System.out.println("question text " + (i + 1) + "(" + q[i].getmm() + ")");
         	int j = 0;
         	for (j = 0; j < q[i].getnc() - 1; j++) {
         		System.out.print("choice " + (j + 1) + "\t");
         	}
-        	System.out.println("choice " + j);
+        	System.out.println("choice " + (j + 1));
         	System.out.println();
         }
     }
