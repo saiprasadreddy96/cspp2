@@ -196,6 +196,7 @@ public final class Solution {
         	String string1 = "abcd";
         	String[] string2 = q[i].getuc().split(" ");
         	String num = (string2[1]);
+        	System.out.println(num);
         	int num1;
         	//int num1 = Integer.parseInt(string2[1]);
         	if (num == "1" || num == "2" || num == "3" || num == "4") {
