@@ -205,6 +205,7 @@ public final class Solution {
         		
         		num1 = string1.indexOf(num) + 1;
         	}
+        	System.out.println(num1);
         	if (num1 == q[i].getcc()) {
         		System.out.println(" Correct Answer! - Marks Awarded: " + q[i].getmm());
         		score += q[i].getmm();
