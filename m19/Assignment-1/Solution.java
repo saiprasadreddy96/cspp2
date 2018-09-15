@@ -73,7 +73,7 @@ public final class Solution {
                 		String question = s.nextLine();
                 		String[] parts = question.split(":");
                 		//System.out.println(parts[0]);
-                		if (parts.length < 5  || parts[0] == "null") {
+                		if (parts.length < 5  || parts[0].equals(null)) {
                 			n = 0;
                 			System.out.println("Error! Malformed question");
                 			break;
