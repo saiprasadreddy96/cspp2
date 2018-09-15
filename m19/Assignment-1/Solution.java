@@ -37,10 +37,12 @@ public final class Solution {
      */
      Quiz[] q;
      int size;
+     static int n = 0;
     private Solution() {
         // leave this blank
     	q = new Quiz[10];
     	size = 0;
+    	//n = 0;
     }
     /**
      * main function to execute test cases.
@@ -64,29 +66,43 @@ public final class Solution {
                 System.out.println("|----------------|");
                 System.out.println("| Load Questions |");
                 System.out.println("|----------------|");
-                int n = Integer.parseInt(tokens[1]);
-                for (int i = 0; i < n; i++) {
-                	String question = s.nextLine();
-                	String[] parts = question.split(":");
-                	String[] choice = parts[1].split(",");
-                	int len = choice.length;
-                	Quiz q1 = new Quiz(i + 1, len, Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
-                	sol.loadQuestions(q1);
+                //n = 0;
+                n = Integer.parseInt(tokens[1]);
+                if (n > 0) {
+                	for (int i = 0; i < n; i++) {
+                		String question = s.nextLine();
+                		String[] parts = question.split(":");
+                		if (parts.length != 5) {
+                			n = 0;
+                			System.out.println("Error! Malformed question");
+                			break;
+                		}
+                		String[] choice = parts[1].split(",");
+                		int len = choice.length;
+                		Quiz q1 = new Quiz(i + 1, len, Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+                		sol.loadQuestions(q1);
 
-                }
-                System.out.println(n + " are added to the quiz");
+                	}
+                	System.out.println(n + " are added to the quiz");
+            	} else {
+            		System.out.println("Quiz does not have questions");
+            	}
                 break;
                 case "START_QUIZ":
                 System.out.println("|------------|");
                 System.out.println("| Start Quiz |");
                 System.out.println("|------------|");
-                sol.startQuiz(s, Integer.parseInt(tokens[1]));
+                if (n > 0) {
+                	sol.startQuiz(s, Integer.parseInt(tokens[1]));
+                }
                 break;
                 case "SCORE_REPORT":
                 System.out.println("|--------------|");
                 System.out.println("| Score Report |");
                 System.out.println("|--------------|");
-                sol.displayScore();
+                if (n > 0) {
+             	   sol.displayScore();
+            	}
                 break;
                 default:
                 break;
