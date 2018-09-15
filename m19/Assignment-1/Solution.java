@@ -146,10 +146,10 @@ public final class Solution {
         for (int i = 0; i < size; i++) {
         	System.out.println("question text " + (i + 1));
         	if (q[i].getcc() == q[i].getuc()) {
-        		System.out.println("Correct Answer! - Marks Awarded: " + q[i].getmm());
+        		System.out.println(" Correct Answer! - Marks Awarded: " + q[i].getmm());
         		score += q[i].getmm();
         	} else {
-        		System.out.println("Wrong Answer! - Penalty: " + q[i].getp());
+        		System.out.println(" Wrong Answer! - Penalty: " + q[i].getp());
         		score += q[i].getp();
         	}
         }
