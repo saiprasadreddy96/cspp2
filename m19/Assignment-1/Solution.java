@@ -199,7 +199,7 @@ public final class Solution {
         	System.out.println(num);
         	int num1;
         	//int num1 = Integer.parseInt(string2[1]);
-        	if (num == "1" || num == "2" || num == "3" || num == "4") {
+        	if (num.equals("1") || num.equals("2") || num.equals("3") || num.equals("4")) {
         		num1 = Integer.parseInt(string2[1]);
         		System.out.println("in if");
         	}
