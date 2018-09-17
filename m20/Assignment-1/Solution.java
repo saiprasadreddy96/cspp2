@@ -334,10 +334,10 @@ public final class Solution {
         	Question questions = quiz.getQuestion(i);
         	System.out.println(questions.getQuestionText());
         	if (questions.evaluateResponse()) {
-        		System.out.println("Correct Answer! - Marks Awarded: " + questions.getMaxMarks());
+        		System.out.println(" Correct Answer! - Marks Awarded: " + questions.getMaxMarks());
         		ts += questions.getMaxMarks();
         	} else {
-        		System.out.println("Wrong Answer! - Penalty: " + questions.getPenalty());
+        		System.out.println(" Wrong Answer! - Penalty: " + questions.getPenalty());
         		ts += questions.getPenalty();
         	}
         }
