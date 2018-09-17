@@ -44,8 +44,8 @@ class Question {
      * @param      response1       The response 1
      */
     Question(final String question1, final String[] choices1, final
-    	int correctAnswer1, final int maxMarks1, final int penalty1, 
-    	final String response1) {
+        int correctAnswer1, final int maxMarks1, final int penalty1,
+        final String response1) {
         this.questiontext = question1;
         this.choices = choices1;
         this.correctAnswer = correctAnswer1;
@@ -292,13 +292,13 @@ public final class Solution {
             if (parts[1].split(",").length < two) {
                 v = -1;
                 throw new Exception(parts[0] 
-                	+ " does not have enough answer choices");
+                    + " does not have enough answer choices");
             }
             if (Integer.parseInt(parts[two]) > parts[1].split(",").length) {
                 v = -1;
                 System.out.print("Error! Correct answer choice number ");
                 throw new Exception("is out of range for " 
-                	+ parts[0]);
+                    + parts[0]);
             }
             if (Integer.parseInt(parts[three]) <= 0) {
                 v = -1;
@@ -332,7 +332,7 @@ public final class Solution {
             quiz.setResponse(scan.nextLine());
             Question questions = quiz.getQuestion(i);
             System.out.println(questions.getQuestionText() 
-            	+ "(" + questions.getMaxMarks() + ")");
+                + "(" + questions.getMaxMarks() + ")");
             System.out.println(questions.printChoices() + "\n");
         }
     }
@@ -351,11 +351,11 @@ public final class Solution {
             System.out.println(questions.getQuestionText());
             if (questions.evaluateResponse()) {
                 System.out.println(" Correct Answer! - Marks Awarded: " 
-                	+ questions.getMaxMarks());
+                    + questions.getMaxMarks());
                 ts += questions.getMaxMarks();
             } else {
                 System.out.println(" Wrong Answer! - Penalty: " 
-                	+ questions.getPenalty());
+                    + questions.getPenalty());
                 ts += questions.getPenalty();
             }
         }
