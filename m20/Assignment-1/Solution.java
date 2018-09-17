@@ -43,9 +43,9 @@ class Question {
      * @param      penalty1        The penalty 1
      * @param      response1       The response 1
      */
-    Question(final String question1, final String[] choices1, 
-        final int correctAnswer1, final int maxMarks1, 
-        final int penalty1, final String response1) {
+    Question(final String question1, final String[] choices1, final 
+    	int correctAnswer1, final int maxMarks1, final int penalty1, 
+    	final String response1) {
         this.questiontext = question1;
         this.choices = choices1;
         this.correctAnswer = correctAnswer1;
@@ -188,7 +188,7 @@ class Quiz {
      *
      * @param      answer  The answer
      */
-    public void setResponse(String answer) {
+    public void setResponse(final String answer) {
         questions[size1].setResponse(answer);
         size1++;
     }
@@ -291,14 +291,14 @@ public final class Solution {
             }
             if (parts[1].split(",").length < two) {
                 v = -1;
-                throw new Exception(parts[0] + 
-                    " does not have enough answer choices");
+                throw new Exception(parts[0] 
+                	+ " does not have enough answer choices");
             }
             if (Integer.parseInt(parts[two]) > parts[1].split(",").length) {
                 v = -1;
-                throw new Exception
-                ("Error! Correct answer choice number is out of range for " 
-                    + parts[0]);
+                System.out.println("Error! Correct answer choice number ");
+                throw new Exception("is out of range for " 
+                	+ parts[0]);
             }
             if (Integer.parseInt(parts[three]) <= 0) {
                 v = -1;
@@ -331,8 +331,8 @@ public final class Solution {
         for (int i = 0; i < q; i++) {
             quiz.setResponse(scan.nextLine());
             Question questions = quiz.getQuestion(i);
-            System.out.println(questions.getQuestionText() + 
-                "(" + questions.getMaxMarks() + ")");
+            System.out.println(questions.getQuestionText() 
+            	+ "(" + questions.getMaxMarks() + ")");
             System.out.println(questions.printChoices() + "\n");
         }
     }
@@ -350,15 +350,19 @@ public final class Solution {
             Question questions = quiz.getQuestion(i);
             System.out.println(questions.getQuestionText());
             if (questions.evaluateResponse()) {
-                System.out.println(" Correct Answer! - Marks Awarded: " + 
-                    questions.getMaxMarks());
+                System.out.println(" Correct Answer! - Marks Awarded: " 
+                	+ questions.getMaxMarks());
                 ts += questions.getMaxMarks();
             } else {
-                System.out.println(" Wrong Answer! - Penalty: " + 
-                    questions.getPenalty());
+                System.out.println(" Wrong Answer! - Penalty: " 
+                	+ questions.getPenalty());
                 ts += questions.getPenalty();
             }
         }
         System.out.println("Total Score: " + ts);
     }
 }
+
+
+
+
