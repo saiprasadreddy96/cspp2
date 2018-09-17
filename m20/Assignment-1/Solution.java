@@ -170,7 +170,7 @@ class Quiz {
      */
     public void addQuestion(final Question q) {
     	questions[size++] = q;
-    	System.out.println(questions[size - 1].getQuestionText());
+    	//System.out.println(questions[size - 1].getQuestionText());
 
     }
     /**
@@ -288,6 +288,7 @@ public final class Solution {
         		Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), null));
 
         }
+        System.out.println(q + " are added to the quiz");
     }
     /**
      * Starts a quiz.
