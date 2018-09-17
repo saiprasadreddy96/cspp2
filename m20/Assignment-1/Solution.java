@@ -133,7 +133,7 @@ class Question {
     	int i = 0;
     	for (i = 0; i < str.length - 1; i++) {
     		str1 += str[i] + "\t";
-    		System.out.println("in printChoices" + i);
+    		//System.out.println("in printChoices" + i);
     	}
     	str1 += str[i];
     	return str1;
@@ -203,6 +203,7 @@ public final class Solution {
      /**
      * Constructs the object.
      */
+     static int v = 1;
     private Solution() {
         // leave this blank
     }
@@ -238,13 +239,17 @@ public final class Solution {
                 System.out.println("|------------|");
                 System.out.println("| Start Quiz |");
                 System.out.println("|------------|");
-                startQuiz(s, q, Integer.parseInt(tokens[1]));
+                if (v == 1) {
+             	   startQuiz(s, q, Integer.parseInt(tokens[1]));
+            	}
                 break;
                 case "SCORE_REPORT":
                 System.out.println("|--------------|");
                 System.out.println("| Score Report |");
                 System.out.println("|--------------|");
-                displayScore(q);
+                if (v == 1) {
+                	displayScore(q);
+            	}
                 break;
                 default:
                 break;
@@ -265,23 +270,29 @@ public final class Solution {
         // tokenize the question line and create the question object
         // add the question objects to the quiz class
         if (q <= 0) {
+        	v = -1;
         	throw new Exception("“Quiz does not have questions");
         }
         for (int i = 0; i < q; i++) {
         	String[] parts = scan.nextLine().split(":");
         	if (parts.length < 5 || parts[0].length() <= 0) {
+        		v = -1;
         		throw new Exception("Error! Malformed question");
         	}
         	if (parts[1].split(",").length < 2) {
+        		v = -1;
         		throw new Exception(parts[0] + " does not have enough answer choices");
         	}
         	if (Integer.parseInt(parts[2]) > parts[1].split(",").length) {
+        		v = -1;
         		throw new Exception("Error! Correct answer choice number is out of range for " + parts[0]);
         	}
         	if (Integer.parseInt(parts[3]) <= 0) {
+        		v = -1;
         		throw new Exception("Invalid max marks for " + parts[0]);
         	}
         	if (Integer.parseInt(parts[4]) > 0) {
+        		v = -1;
         		throw new Exception("“Invalid penalty for " + parts[0]);
         	}
         	quiz.addQuestion(new Question(parts[0], parts[1].split(","), Integer.parseInt(parts[2]), 
