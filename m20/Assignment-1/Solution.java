@@ -122,11 +122,12 @@ class Question {
      * @return     String representation of the object.
      */
     public String printChoices() {
-    	String[] str = getChoice();
+    	String[] str = this.getChoice();
     	String str1 = "";
     	int i = 0;
     	for (i = 0; i < str.length - 1; i++) {
     		str1 += str[i] + "\t";
+    		System.out.println("in printChoices" + i);
     	}
     	str1 += str[i];
     	return str1;
