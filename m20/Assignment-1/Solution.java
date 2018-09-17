@@ -271,7 +271,7 @@ public final class Solution {
         // add the question objects to the quiz class
         if (q <= 0) {
         	v = -1;
-        	throw new Exception("“Quiz does not have questions");
+        	throw new Exception("Quiz does not have questions");
         }
         for (int i = 0; i < q; i++) {
         	String[] parts = scan.nextLine().split(":");
@@ -293,7 +293,7 @@ public final class Solution {
         	}
         	if (Integer.parseInt(parts[4]) > 0) {
         		v = -1;
-        		throw new Exception("“Invalid penalty for " + parts[0]);
+        		throw new Exception("Invalid penalty for " + parts[0]);
         	}
         	quiz.addQuestion(new Question(parts[0], parts[1].split(","), Integer.parseInt(parts[2]), 
         		Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), null));
