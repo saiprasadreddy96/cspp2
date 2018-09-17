@@ -164,6 +164,7 @@ class Quiz {
      */
     public void addQuestion(final Question q) {
     	questions[size++] = q;
+    	System.out.println(questions[size - 1].getQuestionText());
 
     }
     /**
