@@ -238,7 +238,7 @@ public final class Solution {
                 System.out.println("| Load Questions |");
                 System.out.println("|----------------|");
                 try {
-                    loadQuestions(s, q, Integer.parseInt(tokens[1])); 
+                    loadQuestions(s, q, Integer.parseInt(tokens[1]));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -291,13 +291,13 @@ public final class Solution {
             }
             if (parts[1].split(",").length < two) {
                 v = -1;
-                throw new Exception(parts[0] 
+                throw new Exception(parts[0]
                     + " does not have enough answer choices");
             }
             if (Integer.parseInt(parts[two]) > parts[1].split(",").length) {
                 v = -1;
                 System.out.print("Error! Correct answer choice number ");
-                throw new Exception("is out of range for " 
+                throw new Exception("is out of range for "
                     + parts[0]);
             }
             if (Integer.parseInt(parts[three]) <= 0) {
@@ -309,10 +309,9 @@ public final class Solution {
                 throw new Exception("Invalid penalty for " + parts[0]);
             }
             quiz.addQuestion(new Question(parts[0], 
-                parts[one].split(","), Integer.parseInt(parts[two]), 
-                Integer.parseInt(parts[three]), 
+                parts[one].split(","), Integer.parseInt(parts[two]),
+                Integer.parseInt(parts[three]),
                 Integer.parseInt(parts[four]), null));
-
         }
         System.out.println(q + " are added to the quiz");
     }
@@ -331,13 +330,11 @@ public final class Solution {
         for (int i = 0; i < q; i++) {
             quiz.setResponse(scan.nextLine());
             Question questions = quiz.getQuestion(i);
-            System.out.println(questions.getQuestionText() 
+            System.out.println(questions.getQuestionText()
                 + "(" + questions.getMaxMarks() + ")");
             System.out.println(questions.printChoices() + "\n");
         }
     }
-
-    
     /**
      * Displays the score report.
      *
@@ -350,11 +347,11 @@ public final class Solution {
             Question questions = quiz.getQuestion(i);
             System.out.println(questions.getQuestionText());
             if (questions.evaluateResponse()) {
-                System.out.println(" Correct Answer! - Marks Awarded: " 
+                System.out.println(" Correct Answer! - Marks Awarded: "
                     + questions.getMaxMarks());
                 ts += questions.getMaxMarks();
             } else {
-                System.out.println(" Wrong Answer! - Penalty: " 
+                System.out.println(" Wrong Answer! - Penalty: "
                     + questions.getPenalty());
                 ts += questions.getPenalty();
             }
