@@ -43,7 +43,7 @@ class Question {
      * @param      penalty1        The penalty 1
      * @param      response1       The response 1
      */
-    Question(final String question1, final String[] choices1, final 
+    Question(final String question1, final String[] choices1, final
     	int correctAnswer1, final int maxMarks1, final int penalty1, 
     	final String response1) {
         this.questiontext = question1;
