@@ -317,8 +317,7 @@ public final class Solution {
         	quiz.setResponse(scan.nextLine());
         	Question questions = quiz.getQuestion(i);
         	System.out.println(questions.getQuestionText() + "(" + questions.getMaxMarks() + ")");
-        	System.out.println(questions.printChoices());
-        	System.out.println();
+        	System.out.println(questions.printChoices() + "\n");
         }
     }
 
