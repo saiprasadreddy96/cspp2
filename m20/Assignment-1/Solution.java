@@ -44,6 +44,12 @@ class Question {
      */
     Question(final String question1, final String[] choices1,
         final int correctAnswer1, final int maxMarks1, final int penalty1, final String response) {
+    	this.questiontext = question1;
+    	this.choices = choices1;
+    	this.correctAnswer = correctAnswer1;
+    	this.maxMarks = maxMarks1;
+    	this.penalty = penalty1;
+    	this.response = null;
 
     }
     /**
