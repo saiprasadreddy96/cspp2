@@ -316,7 +316,7 @@ public final class Solution {
         for (int i = 0; i < q; i++) {
         	quiz.setResponse(scan.nextLine());
         	Question questions = quiz.getQuestion(i);
-        	System.out.println(questions.getQuestionText() + "(" + questions.getMaxMarks() + ")" + "\n");
+        	System.out.println(questions.getQuestionText() + "(" + questions.getMaxMarks() + ")");
         	System.out.println(questions.printChoices());
         }
     }
