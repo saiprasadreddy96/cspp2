@@ -296,7 +296,7 @@ public final class Solution {
             }
             if (Integer.parseInt(parts[two]) > parts[1].split(",").length) {
                 v = -1;
-                System.out.println("Error! Correct answer choice number ");
+                System.out.print("Error! Correct answer choice number ");
                 throw new Exception("is out of range for " 
                 	+ parts[0]);
             }
