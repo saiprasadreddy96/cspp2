@@ -267,7 +267,7 @@ public final class Solution {
         	if (parts[1].split(",").length < 2) {
         		throw new Exception(parts[0] + " does not have enough answer choices");
         	}
-        	if (Integer.parseInt(parts[2]) <= parts[1].split(",").length) {
+        	if (Integer.parseInt(parts[2]) > parts[1].split(",").length) {
         		throw new Exception("Error! Correct answer choice number is out of range for " + parts[0]);
         	}
         	if (Integer.parseInt(parts[3]) <= 0) {
