@@ -132,7 +132,7 @@ class Question {
     	String str1 = "";
     	int i = 0;
     	for (i = 0; i < str.length - 1; i++) {
-    		str1 += str[i] + "\t";
+    		str1 += str[i] + "	";
     		//System.out.println("in printChoices" + i);
     	}
     	str1 += str[i];
