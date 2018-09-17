@@ -308,7 +308,7 @@ public final class Solution {
                 v = -1;
                 throw new Exception("Invalid penalty for " + parts[0]);
             }
-            quiz.addQuestion(new Question(parts[0], 
+            quiz.addQuestion(new Question(parts[0],
                 parts[one].split(","), Integer.parseInt(parts[two]),
                 Integer.parseInt(parts[three]),
                 Integer.parseInt(parts[four]), null));
