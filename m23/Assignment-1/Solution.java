@@ -18,7 +18,7 @@ class Document {
 		try {
 		System.out.println("buffer");
 		System.out.println(foldername + " " + filename);
-		FileInputStream fis = new FileInputStream("F:\\recyle bin\\MSIT\\cspp2\\m23\\Assignment-1\\foldername\\filename");
+		FileInputStream fis = new FileInputStream("F:/recyle bin/MSIT/cspp2/m23/Assignment-1/foldername/filename");
 		System.out.println("buffer1");
 		InputStreamReader isr = new InputStreamReader(fis);
 		BufferedReader br = new BufferedReader(isr);
