@@ -19,7 +19,7 @@ class Document {
 		FileInputStream fis = new FileInputStream("F:\\recyle bin\\MSIT\\cspp2\\m23\\Assignment-1\\foldername\\filename");
 		InputStreamReader isr = new InputStreamReader(fis);
 		BufferedReader br = new BufferedReader(isr);
-		
+		System.out.println("buffer");
 		String str;
 		for (str = br.readLine(); str != null; str = br.readLine()) {
 			String[] str1 = str.toLowerCase().replaceAll("[^a-z0-9_. ]", "").trim().replaceAll(".", " ").split(" ");
