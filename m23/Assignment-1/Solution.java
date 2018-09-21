@@ -20,19 +20,20 @@ class Document {
 		System.out.println(foldername + " " + filename);
 		
 		//sc = new FileInputStream("foldername/filename");
-		FileInputStream fis = new FileInputStream("foldername/filename");
+		FileInputStream fis = new FileInputStream(foldername + "/" + filename);
 		System.out.println("buffer1");
 		InputStreamReader isr = new InputStreamReader(fis);
 		BufferedReader br = new BufferedReader(isr);
 		System.out.println("buffer1");
-		String str;
-		for (str = br.readLine(); str != null; str = br.readLine()) {
+		String str = br.readLine();
+		while (str != null) {
 			String[] str1 = str.toLowerCase().replaceAll("[^a-z0-9_. ]", "").trim().replaceAll(".", " ").split(" ");
 			ArrayList<String> line = new ArrayList<String>();
 			for (String word: str1) {
 				line.add(word);
 			}
 			words.addAll(line);
+			str = br.readLine();
 		}
 		} catch (Exception e) {
 			System.out.println("in store in doc");
