@@ -19,14 +19,14 @@ class Task {
 	/**.
 	 * Constructs the object.
 	 *
-	 * @param      title           The title
-	 * @param      assignedTo      The assigned to
-	 * @param      timeToComplete  The time to complete
-	 * @param      important       The important
-	 * @param      urgent          The urgent
-	 * @param      status          The status
+	 * @param      title1           The title 1
+	 * @param      assignedTo1      The assigned to 1
+	 * @param      timeToComplete1  The time to complete 1
+	 * @param      important1       The important 1
+	 * @param      urgent1          The urgent 1
+	 * @param      status1          The status 1
 	 */
-	public Task(final String title1, final String assignedTo1,
+	protected Task(final String title1, final String assignedTo1,
 		final int timeToComplete1, final boolean important1,
 		final boolean urgent1, final String status1)
 		throws Exception {
@@ -34,7 +34,7 @@ class Task {
 			throw new Exception("Title not provided");
 		}
 		if (timeToComplete1 <= 0) {
-			throw new Exception("Invalid timeToComplete " + timeToComplete);
+			throw new Exception("Invalid timeToComplete -1");
 		}
 		if (!(status1.equals("todo") || status1.equals("done"))) {
 			throw new Exception("Invalid status dud");
@@ -126,9 +126,12 @@ class Todoist {
 	/**.
 	 * Constructs the object.
 	 */
-	final int TEN = 10;
+	final private int ten = 10;
+	/**.
+	 * Constructs the object.
+	 */
 	public Todoist() {
-		tasks = new Task[TEN];
+		tasks = new Task[ten];
 		size = 0;
 	}
 	/**.
