@@ -25,7 +25,7 @@ class Task {
      * @param      important1       The important 1
      * @param      urgent1          The urgent 1
      * @param      status1          The status 1
-     * @throws     <exception_object>   {some exception }
+     * @throws     Exception some exception 
      */
     protected Task(final String title1, final String assignedTo1,
         final int timeToComplete1, final boolean important1,
