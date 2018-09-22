@@ -26,19 +26,25 @@ class Task {
 	 * @param      urgent          The urgent
 	 * @param      status          The status
 	 */
-	public Task(final String title, final String assignedTo, final int timeToComplete, final boolean important, final boolean urgent, final String status) throws Exception {
-		if (title == null || title.length() <= 0) 
+	public Task(final String title1, final String assignedTo1,
+		final int timeToComplete1, final boolean important1,
+		final boolean urgent1, final String status1)
+		throws Exception {
+		if (title1 == null || title1.length() <= 0) {
 			throw new Exception("Title not provided");
-		if (timeToComplete <= 0)
+		}
+		if (timeToComplete1 <= 0) {
 			throw new Exception("Invalid timeToComplete " + timeToComplete);
-		if (!(status.equals("todo") || status.equals("done")))
+		}
+		if (!(status1.equals("todo") || status1.equals("done"))) {
 			throw new Exception("Invalid status dud");
-		this.title = title;
-		this.assignedTo = assignedTo;
-		this.timeToComplete = timeToComplete;
-		this.important = important;
-		this.urgent = urgent;
-		this.status = status;
+		}
+		this.title = title1;
+		this.assignedTo = assignedTo1;
+		this.timeToComplete = timeToComplete1;
+		this.important = important1;
+		this.urgent = urgent1;
+		this.status = status1;
 	}
 	/**.
 	 * Returns a string representation of the object.
@@ -120,8 +126,9 @@ class Todoist {
 	/**.
 	 * Constructs the object.
 	 */
+	final int TEN = 10;
 	public Todoist() {
-		tasks = new Task[10];
+		tasks = new Task[TEN];
 		size = 0;
 	}
 	/**.
@@ -187,8 +194,13 @@ class Todoist {
 		Task[] tasks2 = new Task[count];
 		int j = 0;
 		for (int i = 0; i < size; i++) {
-			if (j >= count) break;
-			if (tasks[i].getassignedTo().equals(assignedTo) && tasks[i].getstatus().equals("todo") && tasks[i].getimportant() && (!tasks[i].geturgent())) {
+			if (j >= count) {
+				break;
+			}
+			if (tasks[i].getassignedTo().equals(assignedTo)
+				&& tasks[i].getstatus().equals("todo")
+				&& tasks[i].getimportant()
+				&& (!tasks[i].geturgent())) {
 				tasks2[j] = tasks[i];
 				j++;
 			}
@@ -215,8 +227,10 @@ class Todoist {
  */
 public class TodoistMain {
 	/**.
-	 * Starts a test.
+	 * Constructs the object.
 	 */
+	protected TodoistMain() {
+	}
     public static void startTest() {
         Todoist todo = new Todoist();
         Scanner s = new Scanner(System.in);
@@ -283,12 +297,13 @@ public class TodoistMain {
      * @throws     Exception  if task inputs are invalid
      */
     public static Task createTask(final String[] tokens) throws Exception {
+    	final int THREE = 3, FOUR = 4, FIVE = 5, SIX = 6;
         String title = tokens[1];
         String assignedTo = tokens[2];
-        int timeToComplete = Integer.parseInt(tokens[3]);
-        boolean important = tokens[4].equals("y");
-        boolean urgent = tokens[5].equals("y");
-        String status = tokens[6];
+        int timeToComplete = Integer.parseInt(tokens[THREE]);
+        boolean important = tokens[FOUR].equals("y");
+        boolean urgent = tokens[FIVE].equals("y");
+        String status = tokens[SIX];
         return new Task(
             title, assignedTo, timeToComplete, important, urgent, status);
     }
@@ -301,3 +316,6 @@ public class TodoistMain {
         startTest();
     }
 }
+
+
+
