@@ -10,38 +10,44 @@ import java.util.Arrays;
 class Document {
 	private ArrayList<String> words;
 	private Hashtable<String, Integer> ht;
+	private String docname;
 	public Document() {
 		words = new ArrayList<String>();
 		ht = new Hashtable<String, Integer>();
+		docname = "";
+	}
+	public  String getdocname() {
+		return docname;
 	}
 	public void storeindoc(String foldername, String filename) {
 		try {
-		System.out.println("buffer");
-		System.out.println(foldername + " " + filename);
 		
 		//sc = new FileInputStream("foldername/filename");
+		docname = filename;
 		FileInputStream fis = new FileInputStream(foldername + "/" + filename);
-		System.out.println("buffer1");
 		InputStreamReader isr = new InputStreamReader(fis);
 		BufferedReader br = new BufferedReader(isr);
-		System.out.println("buffer1");
 		String str = br.readLine();
 		while (str != null) {
-			String[] str1 = str.toLowerCase().replaceAll("[^a-z0-9_. ]", "").trim().replaceAll(".", " ").split(" ");
+			String[] str1 = str.toLowerCase().replaceAll("[^a-z_0-9 ]", "").trim().split(" ");
 			ArrayList<String> line = new ArrayList<String>();
 			for (String word: str1) {
-				line.add(word);
+				if (word.length() >= 1) {
+					line.add(word);
+				}
+				//System.out.println(word);
 			}
 			words.addAll(line);
 			str = br.readLine();
 		}
+		//System.out.println(words);
 		} catch (Exception e) {
 			System.out.println("in store in doc");
 		}
 	}
 	public void cleandoc() {
 		try {
-		FileInputStream fis = new FileInputStream("F:\\recyle bin\\MSIT\\cspp1\\sai\\cspp1-practice\\m16\\CodeCampDocumentDistance\\stopwords.txt");
+		FileInputStream fis = new FileInputStream("F:/recyle bin/MSIT/cspp1/sai/cspp1-practice/m16/CodeCampDocumentDistance/stopwords.txt");
 		InputStreamReader isr = new InputStreamReader(fis);
 		BufferedReader br = new BufferedReader(isr);
 		String str = br.readLine();
@@ -64,6 +70,7 @@ class Document {
 				ht.put(str, 1);
 			}
 		}
+		//System.out.println(ht.toString());
 	}
 	public Double denominator() {
 		Enumeration <String> keys = ht.keys();
@@ -83,7 +90,7 @@ class Document {
 				num += (this.ht.get(str)) * (other.ht.get(str));
 			}
 		}
-		System.out.println(num / (this.denominator() * other.denominator()));
+		System.out.print(Math.round((num / (this.denominator() * other.denominator())) * 100));
 	}
 }
 public class Solution {
@@ -106,26 +113,26 @@ public class Solution {
 		try {
 		File foldername = new File(sc.nextLine());
 		File[] files = foldername.listFiles();
-		System.out.println("      		");
+		//System.out.print("      		");
 		String filenames = "";
 		for (File file : files) {
 			if (file.isFile()) {
 				Document d = new Document();
 				d.storeindoc(foldername.getName(), file.getName());
-				d.cleandoc();
+				//d.cleandoc();
 				d.calculatefreq();
 				pg.add(d);
 				filenames += file.getName() + "	";
 			}
 		}
-		System.out.println(filenames.trim());
+		System.out.println("      		" + filenames.trim());
 		for (int i = 0; i < pg.size(); i++) {
+			System.out.print(pg.get(i).getdocname() + "	");
 			for (int j = 0; j < pg.size(); j++) {
 				Document d1 = pg.get(i);
 				Document d2 = pg.get(j);
 				d1.result(d2);
-				System.out.println("\t");
-
+				System.out.print("		");
 			}
 			System.out.println();
 		}
