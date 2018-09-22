@@ -12,7 +12,20 @@ class Task {
 	 * { item_description }
 	 */
 	private boolean important, urgent;
+	/**.
+	 * { var_description }
+	 */
 	private int timeToComplete;
+	/**.
+	 * Constructs the object.
+	 *
+	 * @param      title           The title
+	 * @param      assignedTo      The assigned to
+	 * @param      timeToComplete  The time to complete
+	 * @param      important       The important
+	 * @param      urgent          The urgent
+	 * @param      status          The status
+	 */
 	public Task(final String title, final String assignedTo, final int timeToComplete, final boolean important, final boolean urgent, final String status) throws Exception {
 		if (title == null || title.length() <= 0) 
 			throw new Exception("Title not provided");
@@ -27,7 +40,15 @@ class Task {
 		this.urgent = urgent;
 		this.status = status;
 	}
+	/**.
+	 * Returns a string representation of the object.
+	 *
+	 * @return     String representation of the object.
+	 */
 	public String toString() {
+		/**.
+		 * { var_description }
+		 */
 		String str = "";
 		str += title + ", " + assignedTo + ", " + timeToComplete + ", ";
 		if (important) {
@@ -43,29 +64,69 @@ class Task {
 		str += status;
 		return str;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public String getassignedTo() {
 		return assignedTo;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public String getstatus() {
 		return status;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public boolean getimportant() {
 		return important;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public boolean geturgent() {
 		return urgent;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public int gettimeToComplete() {
 		return timeToComplete;
 	}
 }
+/**.
+ * Class for todoist.
+ */
 class Todoist {
+	/**
+	 * { var_description }
+	 */
 	private Task[] tasks;
+	/**.
+	 * { item_description }
+	 */
 	private int size, resize = 10;
+	/**.
+	 * Constructs the object.
+	 */
 	public Todoist() {
 		tasks = new Task[10];
 		size = 0;
 	}
+	/**.
+	 * { function_description }
+	 */
 	public void resize() {
 		resize = size * 2;
 		Task[] tasks1 = new Task[resize];
@@ -74,12 +135,22 @@ class Todoist {
 		}
 		tasks = tasks1;
 	}
-	public void addTask(Task task1) {
+	/**.
+	 * Adds a task.
+	 *
+	 * @param      task1  The task 1
+	 */
+	public void addTask(final Task task1) {
 		if (size == resize) {
 			resize();
 		}
 		tasks[size++] = task1;
 	}
+	/**.
+	 * Returns a string representation of the object.
+	 *
+	 * @return     String representation of the object.
+	 */
 	public String toString() {
 		int i = 0;
 		String str = "";
@@ -89,7 +160,14 @@ class Todoist {
 		str += tasks[i];
 		return str;
 	}
-	public Task getNextTask(String assignedTo) {
+	/**.
+	 * Gets the next task.
+	 *
+	 * @param      assignedTo  The assigned to
+	 *
+	 * @return     The next task.
+	 */
+	public Task getNextTask(final String assignedTo) {
 		for (int i = 0; i < size; i++) {
 			if (tasks[i].getassignedTo().equals(assignedTo) && tasks[i].getstatus().equals("todo") && tasks[i].getimportant() && (!tasks[i].geturgent())) {
 				return tasks[i];
@@ -97,7 +175,15 @@ class Todoist {
 		}
 		return null;
 	}
-	public Task[] getNextTask(String assignedTo, int count) {
+	/**.
+	 * Gets the next task.
+	 *
+	 * @param      assignedTo  The assigned to
+	 * @param      count       The count
+	 *
+	 * @return     The next task.
+	 */
+	public Task[] getNextTask(final String assignedTo, final int count) {
 		Task[] tasks2 = new Task[count];
 		int j = 0;
 		for (int i = 0; i < size; i++) {
@@ -109,6 +195,11 @@ class Todoist {
 		}
 		return tasks2;
 	}
+	/**.
+	 * { function_description }
+	 *
+	 * @return     { description_of_the_return_value }
+	 */
 	public int totalTime4Completion() {
 		int totaltime = 0;
 		for (int i = 0; i < size; i++) {
@@ -123,10 +214,9 @@ class Todoist {
  * Class for todoist main.
  */
 public class TodoistMain {
-
-    /**
-     * Starts a test.
-     */
+	/**.
+	 * Starts a test.
+	 */
     public static void startTest() {
         Todoist todo = new Todoist();
         Scanner s = new Scanner(System.in);
@@ -158,7 +248,6 @@ public class TodoistMain {
             }
         }
     }
-
     /**
      * method to test add task.
      *
@@ -172,7 +261,6 @@ public class TodoistMain {
             System.out.println(e.getMessage());
         }
     }
-
     /**
      * method to test the creation of task object.
      *
@@ -185,7 +273,6 @@ public class TodoistMain {
             System.out.println(e.getMessage());
         }
     }
-
     /**
      * Creates a task object.
      *
@@ -205,7 +292,6 @@ public class TodoistMain {
         return new Task(
             title, assignedTo, timeToComplete, important, urgent, status);
     }
-
     /**
      * main method.
      *
