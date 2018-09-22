@@ -11,9 +11,9 @@ class Task {
 		if (title == null) 
 			throw new Exception("Title not provided");
 		if (timeToComplete <= 0)
-			throw new Exception("Time required to complete the task should be non negative value ");
+			throw new Exception("Invalid timeToComplete " + timeToComplete);
 		if (!(status.equals("todo") || status.equals("done")))
-			throw new Exception("Task status should be either todo or done and can’t have any other value");
+			throw new Exception("Invalid status dud");
 		this.title = title;
 		this.assignedTo = assignedTo;
 		this.timeToComplete = timeToComplete;
@@ -23,7 +23,18 @@ class Task {
 	}
 	public String toString() {
 		String str = "";
-		str += title + ", " + assignedTo + ", " + timeToComplete + ", " + important + ", " + urgent + ", " + status;
+		str += title + ", " + assignedTo + ", " + timeToComplete + ", ";
+		if (important) {
+			str += "Important, ";
+		} else {
+			str += "Not Important, ";
+		}
+		if (urgent) {
+			str += "Urgent, ";
+		} else {
+			str += "Not Urgent, ";
+		}
+		str += status;
 		return str;
 	}
 	public String getassignedTo() {
