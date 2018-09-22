@@ -1,14 +1,20 @@
 import java.util.Scanner;
 import java.util.Arrays;
-/**
-  * write your code below this comment
-  */
+/**.
+ * Class for task.
+ */
 class Task {
+	/**.
+	 * { item_description }
+	 */
 	private String title, assignedTo, status;
+	/**.
+	 * { item_description }
+	 */
 	private boolean important, urgent;
 	private int timeToComplete;
 	public Task(final String title, final String assignedTo, final int timeToComplete, final boolean important, final boolean urgent, final String status) throws Exception {
-		if (title == null) 
+		if (title == null || title.length() <= 0) 
 			throw new Exception("Title not provided");
 		if (timeToComplete <= 0)
 			throw new Exception("Invalid timeToComplete " + timeToComplete);
