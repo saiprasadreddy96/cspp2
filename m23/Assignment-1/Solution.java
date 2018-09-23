@@ -1,144 +1,201 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
+import java.util.HashMap;
 import java.io.File;
-import java.util.Arrays;
-class Document {
-	private ArrayList<String> words;
-	private Hashtable<String, Integer> ht;
-	private String docname;
-	public Document() {
-		words = new ArrayList<String>();
-		ht = new Hashtable<String, Integer>();
-		docname = "";
-	}
-	public  String getdocname() {
-		return docname;
-	}
-	public void storeindoc(String foldername, String filename) {
-		try {
-		
-		//sc = new FileInputStream("foldername/filename");
-		docname = filename;
-		FileInputStream fis = new FileInputStream(foldername + "/" + filename);
-		InputStreamReader isr = new InputStreamReader(fis);
-		BufferedReader br = new BufferedReader(isr);
-		String str = br.readLine();
-		while (str != null) {
-			String[] str1 = str.toLowerCase().replaceAll("[^a-z_0-9 ]", "").trim().split(" ");
-			ArrayList<String> line = new ArrayList<String>();
-			for (String word: str1) {
-				if (word.length() >= 1) {
-					line.add(word);
-				}
-				//System.out.println(word);
-			}
-			words.addAll(line);
-			str = br.readLine();
-		}
-		//System.out.println(words);
-		} catch (Exception e) {
-			System.out.println("in store in doc");
-		}
-	}
-	public void cleandoc() {
-		try {
-		FileInputStream fis = new FileInputStream("F:/recyle bin/MSIT/cspp1/sai/cspp1-practice/m16/CodeCampDocumentDistance/stopwords.txt");
-		InputStreamReader isr = new InputStreamReader(fis);
-		BufferedReader br = new BufferedReader(isr);
-		String str = br.readLine();
-		while (str != null) {
-			if (words.contains(str)) {
-				words.remove(words.indexOf(str));
-			}
-			str = br.readLine();
-		}
-		} catch (Exception e) {
-			System.out.println("in clean doc");
-		}
+import java.io.IOException;
+/**
+ * Class for files.
+ */
+class Files {
+  /**
+   * { hashmap arraylist of fnames }.
+   */
+  private  ArrayList<HashMap> fnames = new ArrayList<>();
+  /**
+   * { hashmap declaration }.
+   */
+  private HashMap<String, Integer> map;
+  /**
+   * { arraylist for storing values }.
+   */
+  private ArrayList<String> valu = new ArrayList<>();
+  /**
+   * { filters the given file }.
+   *
+   * @param      item         The item
+   *
+   * @throws     IOException  { returns IOException if no files found }
+   */
+  public  void filter(final String item) throws IOException {
+    map = new HashMap<String, Integer>();
+    Scanner txtfile = new Scanner(new File(item));
+    while (txtfile.hasNext()) {
+      String[] word = txtfile.next().split(" ");
+      if (word.length != 0) {
+        for (int i = 0; i < word.length; i++) {
+          if (map.containsKey(word[i])) {
+            int count = map.get(word[i]) + 1;
+            map.put(word[i], count);
+          } else {
+            map.put(word[i], 1);
+          }
+        }
+      } else {
+        map.put("0", 0);
+      }
+    }
+    txtfile.close();
+    fnames.add(map);
+  }
+  /**
+   * { number of integer type }.
+   */
+  private static final int NUM = 100;
+  /**
+   * { bag of words  }.
+   */
+  public void bagofwords() {
+    ArrayList<int[]> bag = new ArrayList<int[]>();
+    for (HashMap<String, Integer> i : fnames) {
+      for (HashMap<String, Integer> j : fnames) {
+        int totalcount = 0;
+        int count1 = 0;
+        int count2 = 0;
+        int[] b = new int[2 + 1];
 
-	}
-	public void calculatefreq() {
-		for (String str : words) {
-			if (ht.containsKey(str)) {
-				ht.put(str, ht.get(str) + 1);
-			} else {
-				ht.put(str, 1);
-			}
-		}
-		//System.out.println(ht.toString());
-	}
-	public Double denominator() {
-		Enumeration <String> keys = ht.keys();
-		int denom = 0, d;
-		while (keys.hasMoreElements()) {
-			d = ht.get(keys.nextElement());
-			denom += d * d;
-		}
-		return Math.sqrt(denom);
-	}
-	public void result(Document other) {
-		int num = 0;
-		Enumeration <String> keys = ht.keys();
-		while (keys.hasMoreElements()) {
-			String str = keys.nextElement();
-			if (other.ht.containsKey(str)) {
-				num += (this.ht.get(str)) * (other.ht.get(str));
-			}
-		}
-		System.out.print(Math.round((num / (this.denominator() * other.denominator())) * 100));
-	}
+        for (String k : i.keySet()) {
+          count1 += i.get(k) * i.get(k);
+          count2 = 0;
+          for (String l : j.keySet()) {
+
+            count2 += j.get(l) * j.get(l);
+            if (k.equals(l)) {
+              totalcount += i.get(k) * j.get(l);
+            }
+          }
+        }
+        b[0] = count1;
+        b[1] = count2;
+        b[2] = totalcount;
+        bag.add(b);
+      }
+    }
+    String v1;
+    for (int[] x : bag) {
+      v1 = Math.round((x[2] / (Math.sqrt(x[0]) * Math.sqrt(x[1]))) * NUM) + "";
+      valu.add(v1);
+    }
+  }
+  /**
+   * { prints values in matrix form }.
+   *
+   * @param      filenames  The filenames
+   * @param      size       The size
+   */
+  public void printall(final ArrayList<String> filenames, final int size) {
+    int max = 0;
+    String file1 = "";
+    String file2 = "";
+
+    String[][] mat = new String[size][size];
+    int  k = 0;
+    int k2 = -1;
+    int v = 0;
+    for (int i = 0; i < size; i++) {
+      for (int j = 0; j < size; j++) {
+        if (i == 0 && j == 0) {
+          mat[i][j] = "\t" + "\t";
+        } else {
+
+          if (i == 0 && j == j) {
+
+            mat[i][j] = filenames.get(k) + "\t";
+            k++;
+          } else {
+            if (i >= 1 && j == 0) {
+              k2++;
+
+              mat[i][j] = filenames.get(k2) + "\t";
+            } else {
+
+              mat[i][j] = valu.get(v) + "\t" + "\t";
+              String temp = valu.get(v);
+              int temp2 = Integer.parseInt(temp);
+              if (max <= temp2 && temp2 != NUM) {
+                max = temp2;
+                file1 = mat[i][0];
+                file2 = mat[0][j];
+              }
+              v++;
+
+
+            }
+          }
+        }
+      }
+      k = 0;
+    }
+
+    for (int i = 0; i < size; i++) {
+      for (int j = 0; j < size; j++) {
+        System.out.print(mat[i][j]);
+
+      }
+      System.out.println();
+    }
+    System.out.println(
+      "Maximum similarity is between " + file2 + " and " + file1);
+  }
 }
-public class Solution {
-	ArrayList<Document> docs;
-	private Solution() {
-		docs = new ArrayList<Document>();
-	}
-	private void add(Document d) {
-		docs.add(d);
-	}
-	private int size() {
-		return docs.size();
-	}
-	private Document get(int index) {
-		return docs.get(index);
-	}
-	public static void main(String[] args) {
-		Solution pg = new Solution();
-		Scanner sc = new Scanner(System.in);
-		try {
-		File foldername = new File(sc.nextLine());
-		File[] files = foldername.listFiles();
-		//System.out.print("      		");
-		String filenames = "";
-		for (File file : files) {
-			if (file.isFile()) {
-				Document d = new Document();
-				d.storeindoc(foldername.getName(), file.getName());
-				//d.cleandoc();
-				d.calculatefreq();
-				pg.add(d);
-				filenames += file.getName() + "	";
-			}
-		}
-		System.out.println("      		" + filenames.trim());
-		for (int i = 0; i < pg.size(); i++) {
-			System.out.print(pg.get(i).getdocname() + "	");
-			for (int j = 0; j < pg.size(); j++) {
-				Document d1 = pg.get(i);
-				Document d2 = pg.get(j);
-				d1.result(d2);
-				System.out.print("		");
-			}
-			System.out.println();
-		}
-	} catch (Exception e) {
-		System.out.println();
-		
-	}
-	}
+/**
+ * Class for solution.
+ */
+public final class Solution {
+  /**
+   * Constructs the object.
+   */
+  private Solution() {
+    //empty.
+  }
+  /**
+   * { main function }.
+   *
+   * @param      args         The arguments
+   *
+   * @throws     IOException  { exception }
+   */
+  public static void main(final String[] args) throws IOException {
+    Scanner in = new Scanner(System.in);
+    ArrayList<String> sa = new ArrayList<>();
+    ArrayList<String> filename = new ArrayList<>();
+    Files fa = new Files();
+
+    try  {
+      String t = in.nextLine();
+      File folder = new File(t);
+      File[] listFiles = folder.listFiles();
+      if (listFiles.length != 0) {
+        String fname;
+        int ss = listFiles.length + 1;
+        for (File file : listFiles) {
+          filename.add(file.getName());
+          if (file.isFile()) {
+            sa.add(t + '\\' + file.getName());
+          }
+
+        }
+        for (String f : sa) {
+          fa.filter(f);
+        }
+        fa.bagofwords();
+
+        fa.printall(filename, ss);
+      } else {
+        System.out.println("empty directory");
+      }
+    } catch (Exception ex) {
+      System.out.println("empty directory");
+    }
+
+  }
 }
